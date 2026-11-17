@@ -116,6 +116,11 @@ button {
   border-radius: 1px;
 }
 
+.contact :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--lime);
+}
+
 ::selection {
   background: var(--lime);
   color: var(--ink);
@@ -431,6 +436,14 @@ button {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
+}
+
+.hero__actions .link-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 2px;
+  color: var(--ink);
 }
 
 .hero__meta {
@@ -751,6 +764,18 @@ button {
   color: var(--ink);
 }
 
+.work-note a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+@media (max-width: 900px) {
+  .work-note a,
+  .post__title {
+    padding-block: 4px;
+  }
+}
+
 .project {
   border-bottom: 1px solid var(--line);
   background: transparent;
@@ -885,14 +910,14 @@ button {
   border-left: 1px solid var(--line);
 }
 
-.project__side h4 {
+.project__side .stack-label {
   font-family: var(--font-mono);
   font-size: var(--step--2);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-muted);
   font-weight: 400;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
 }
 
 .tags {
@@ -1411,7 +1436,7 @@ main {
 
 /* ---------- reveal ---------- */
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(14px);
   transition:
@@ -1420,7 +1445,7 @@ main {
   transition-delay: var(--delay, 0ms);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -1438,7 +1463,7 @@ main {
     transition-duration: 0.001ms !important;
   }
 
-  .reveal {
+  .js .reveal {
     opacity: 1;
     transform: none;
   }

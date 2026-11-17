@@ -49,6 +49,7 @@ const person = {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -95,10 +96,10 @@ const person = {
           {social.map((item) => (
             <a class="nav__link" href={item.href}>{item.label}</a>
           ))}
-          <a class="btn btn--primary nav__cta" href="/resume">Download CV</a>
+          <a class="btn btn--primary nav__cta" href={profile.cvs.reference.href} download>Download CV</a>
         </nav>
 
-        <a class="btn btn--sm btn--primary" href="/resume">Download CV</a>
+        <a class="btn btn--sm btn--primary" href={profile.cvs.reference.href} download>Download CV</a>
       </div>
     </header>
 

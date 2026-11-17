@@ -41,7 +41,7 @@ import {
             <span aria-hidden="true">→</span>
           </a>
           <a class="btn btn--ghost" href="#work">See the work</a>
-          <a class="mono" href="/resume" style="text-underline-offset:4px">
+          <a class="mono link-action" href="/resume">
             Two-page CV
           </a>
         </div>
@@ -265,7 +265,7 @@ import {
             {profile.email}
             <span aria-hidden="true">→</span>
           </a>
-          <a class="btn btn--ghost" href="/resume">Download CV</a>
+          <a class="btn btn--ghost" href={profile.cvs.reference.href} download>Download CV</a>
         </div>
       </div>
 
