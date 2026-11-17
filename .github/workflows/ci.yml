@@ -50,6 +50,16 @@ jobs:
       - name: Enforce content security policy
         run: node scripts/check-csp.mjs
 
+      - name: Generate SBOM
+        run: npm sbom --sbom-format cyclonedx > sbom.json
+
+      - name: Upload SBOM
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ github.sha }}
+          path: sbom.json
+          retention-days: 30
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:

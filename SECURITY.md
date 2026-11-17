@@ -29,6 +29,21 @@ Out of scope:
 - Dependencies and GitHub Actions audited weekly by Dependabot
 - CodeQL code scanning on every push and pull request
 
+## OWASP Top 10:2025 review
+
+| Category | Applies to this site | Control and evidence |
+| --- | --- | --- |
+| A01 Broken Access Control | Partly | No accounts or privileged routes. Probes for `.git`, `.env`, `package.json`, source and build directories return 404; path traversal returns 400; writes and `TRACE` return 405; CORS pinned to the canonical origin; no directory listing |
+| A02 Security Misconfiguration | Yes | Strict CSP, HSTS, frame denial, nosniff, COOP/CORP, restrictive Permissions-Policy; custom 404; no source maps; no `X-Powered-By`; HTTP redirects to HTTPS; TLS 1.3 |
+| A03 Software Supply Chain Failures | Yes | Lockfile with integrity hashes, Dependabot with a 5-day cooldown, CodeQL, SBOM generated in CI, secret scanning with push protection, branch protection |
+| A04 Cryptographic Failures | Partly | TLS 1.3 only at the edge, HSTS for one year, no mixed content, no cookies, no secrets in client code |
+| A05 Injection | No runtime input | Static HTML with no interpreter, no database, and no query reflection. DOM updates use `textContent` and `classList`; JSON-LD escapes `<` |
+| A06 Insecure Design | Minimised | No authentication, transactions, uploads or business logic to attack; single static surface |
+| A07 Authentication Failures | Not applicable | Nothing authenticates. Repository access uses SSH keys plus MFA on the GitHub account |
+| A08 Software or Data Integrity Failures | Yes | Dependencies come from the npm registry with lockfile hashes, no third-party scripts or CDNs, fonts self-hosted, security scans on every commit |
+| A09 Security Logging and Alerting Failures | Limited by platform | No server to log. GitHub Actions retains build and deploy logs; Cloudflare holds access analytics and deployment history. No PII is logged by the site |
+| A10 Mishandling of Exceptional Conditions | Yes | Custom 404 for unknown paths, no server-side state to corrupt, unknown routes fail closed |
+
 ## Known accepted risk
 
 `npm audit` reports advisories in the Astro/Vite build toolchain (picomatch ReDoS,

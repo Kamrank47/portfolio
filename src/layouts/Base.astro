@@ -70,7 +70,11 @@ const person = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title={`${profile.name} · writing`} href="/rss.xml" />
     <script is:inline defer src="/site.js"></script>
-    <script type="application/ld+json" set:html={JSON.stringify(person)} is:inline />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(person).replace(/</g, "\\u003c")}
+      is:inline
+    />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
