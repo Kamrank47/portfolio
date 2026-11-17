@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: transparent; }
+      .box { fill: #fbfaf4; stroke: #b6bcae; stroke-width: 1.5; rx: 6px; }
+      .box-focus { fill: #0b2a22; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-accent { fill: #fbfaf4; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-infra { fill: #f2f1ea; stroke: #b6bcae; stroke-dasharray: 4 3; stroke-width: 1.2; rx: 6px; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0c1613; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #5c6a62; }
+      .text-focus-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #f5f7ef; }
+      .text-focus-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #c9f24d; }
+      .text-badge { font-family: monospace; font-size: 8px; fill: #0b2a22; font-weight: 600; }
+      .arrow { stroke: #0b2a22; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-accent { stroke: #2f8a5b; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-dashed { stroke: #5c6a62; stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; marker-end: url(#arrowhead-gray); }
+
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #101816; stroke: #31433a; }
+        .box-focus { fill: #061a15; stroke: #c9f24d; }
+        .box-accent { fill: #15201c; stroke: #5ee39a; }
+        .box-infra { fill: #0a0f0e; stroke: #1f2b25; }
+        .text-title { fill: #e8efe5; }
+        .text-sub { fill: #8b9c90; }
+        .text-focus-title { fill: #f5f7ef; }
+        .text-focus-sub { fill: #c9f24d; }
+        .text-badge { fill: #c9f24d; }
+        .arrow { stroke: #c9f24d; marker-end: url(#arrowhead-lime); }
+        .arrow-accent { stroke: #5ee39a; marker-end: url(#arrowhead-green); }
+        .arrow-dashed { stroke: #8b9c90; marker-end: url(#arrowhead-gray); }
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#0b2a22" />
+    </marker>
+    <marker id="arrowhead-lime" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#c9f24d" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#2f8a5b" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#5c6a62" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+
+  <!-- Stage 1: Developer / Git -->
+  <g transform="translate(20, 30)">
+    <rect width="100" height="52" class="box" />
+    <text x="12" y="22" class="text-title">Git Repository</text>
+    <text x="12" y="38" class="text-sub">App Code + Dockerfile</text>
+  </g>
+
+  <path d="M 120 56 L 150 56" class="arrow" />
+
+  <!-- Stage 2: Jenkins CI -->
+  <g transform="translate(155, 30)">
+    <rect width="115" height="52" class="box" />
+    <text x="12" y="22" class="text-title">Jenkins CI</text>
+    <text x="12" y="36" class="text-sub">Multi-stage build</text>
+    <text x="12" y="46" class="text-badge">Trivy Scan</text>
+  </g>
+
+  <path d="M 270 56 L 300 56" class="arrow" />
+
+  <!-- Stage 3: AWS ECR -->
+  <g transform="translate(305, 30)">
+    <rect width="100" height="52" class="box" />
+    <text x="12" y="22" class="text-title">Amazon ECR</text>
+    <text x="12" y="38" class="text-sub">Immutable Digest</text>
+  </g>
+
+  <path d="M 405 56 L 435 56" class="arrow" />
+
+  <!-- Stage 4: GitOps Repo -->
+  <g transform="translate(440, 30)">
+    <rect width="105" height="52" class="box" />
+    <text x="12" y="22" class="text-title">Config Repo</text>
+    <text x="12" y="38" class="text-sub">Kustomize Overlays</text>
+  </g>
+
+  <path d="M 545 56 L 575 56" class="arrow" />
+
+  <!-- Stage 5: Argo CD -->
+  <g transform="translate(580, 30)">
+    <rect width="95" height="52" class="box" />
+    <text x="12" y="22" class="text-title">Argo CD</text>
+    <text x="12" y="38" class="text-sub">Auto Sync / GitOps</text>
+  </g>
+
+  <path d="M 675 56 L 705 56" class="arrow-accent" />
+
+  <!-- Target: Amazon EKS -->
+  <g transform="translate(710, 20)">
+    <rect width="70" height="72" class="box-focus" />
+    <text x="10" y="28" class="text-focus-title">AWS EKS</text>
+    <text x="10" y="44" class="text-focus-sub">K8s Cluster</text>
+    <text x="10" y="58" class="text-focus-sub">Rollouts</text>
+  </g>
+
+  <!-- Blue/Green Promotion Branch -->
+  <g transform="translate(530, 115)">
+    <rect width="250" height="38" class="box-accent" />
+    <text x="14" y="18" class="text-title">Argo Rollouts: Blue/Green Cutover</text>
+    <text x="14" y="30" class="text-sub">Pre-promotion smoke tests · Zero-downtime release</text>
+  </g>
+  <path d="M 745 92 L 745 110" class="arrow-accent" />
+
+  <!-- Lower Tier: Terragrunt / Terraform Platform Foundation -->
+  <g transform="translate(20, 168)">
+    <rect width="760" height="38" class="box-infra" />
+    <text x="16" y="18" class="text-title">Infrastructure as Code: Terragrunt + Reusable Terraform Modules</text>
+    <text x="16" y="30" class="text-sub">Multi-env (dev/prod) · Encrypted S3 Remote State + DynamoDB Locking · KMS Secret Encryption · IMDSv2 · Allow-listed CIDRs</text>
+  </g>
+
+  <path d="M 72 168 L 72 87" class="arrow-dashed" />
+  <path d="M 355 168 L 355 87" class="arrow-dashed" />
+  <path d="M 745 168 L 745 158" class="arrow-dashed" />
+</svg>

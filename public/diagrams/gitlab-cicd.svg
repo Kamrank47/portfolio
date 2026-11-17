@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: transparent; }
+      .box { fill: #fbfaf4; stroke: #b6bcae; stroke-width: 1.5; rx: 6px; }
+      .box-focus { fill: #0b2a22; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-accent { fill: #fbfaf4; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-infra { fill: #f2f1ea; stroke: #b6bcae; stroke-width: 1.2; rx: 6px; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0c1613; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #5c6a62; }
+      .text-focus-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #f5f7ef; }
+      .text-focus-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #c9f24d; }
+      .arrow { stroke: #0b2a22; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-accent { stroke: #2f8a5b; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-dashed { stroke: #5c6a62; stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; marker-end: url(#arrowhead-gray); }
+
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #101816; stroke: #31433a; }
+        .box-focus { fill: #061a15; stroke: #c9f24d; }
+        .box-accent { fill: #15201c; stroke: #5ee39a; }
+        .box-infra { fill: #0a0f0e; stroke: #1f2b25; }
+        .text-title { fill: #e8efe5; }
+        .text-sub { fill: #8b9c90; }
+        .text-focus-title { fill: #f5f7ef; }
+        .text-focus-sub { fill: #c9f24d; }
+        .arrow { stroke: #c9f24d; marker-end: url(#arrowhead-lime); }
+        .arrow-accent { stroke: #5ee39a; marker-end: url(#arrowhead-green); }
+        .arrow-dashed { stroke: #8b9c90; marker-end: url(#arrowhead-gray); }
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#0b2a22" />
+    </marker>
+    <marker id="arrowhead-lime" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#c9f24d" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#2f8a5b" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#5c6a62" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+
+  <!-- Common Trigger: GitLab CI/CD -->
+  <g transform="translate(20, 50)">
+    <rect width="120" height="95" class="box" />
+    <text x="14" y="26" class="text-title">GitLab CI/CD</text>
+    <text x="14" y="44" class="text-sub">Self-hosted GitLab</text>
+    <text x="14" y="60" class="text-sub">5-Branch Model</text>
+    <text x="14" y="76" class="text-sub">Manual Prod Gate</text>
+  </g>
+
+  <!-- Pipeline A: .NET on Windows/IIS -->
+  <path d="M 140 75 L 180 45" class="arrow" />
+
+  <g transform="translate(185, 20)">
+    <rect width="130" height="50" class="box" />
+    <text x="12" y="20" class="text-title">Windows Runner</text>
+    <text x="12" y="34" class="text-sub">Self-contained .NET Build</text>
+  </g>
+
+  <path d="M 315 45 L 345 45" class="arrow" />
+
+  <g transform="translate(350, 20)">
+    <rect width="135" height="50" class="box" />
+    <text x="12" y="20" class="text-title">PowerShell Release</text>
+    <text x="12" y="34" class="text-sub">Stop pool · Backup old</text>
+  </g>
+
+  <path d="M 485 45 L 515 45" class="arrow-accent" />
+
+  <g transform="translate(520, 20)">
+    <rect width="130" height="50" class="box" />
+    <text x="12" y="20" class="text-title">IIS App Pool</text>
+    <text x="12" y="34" class="text-sub">Atomic file swap</text>
+  </g>
+
+  <path d="M 650 45 L 675 45" class="arrow-accent" />
+
+  <g transform="translate(680, 15)">
+    <rect width="100" height="60" class="box-focus" />
+    <text x="10" y="22" class="text-focus-title">Health Check</text>
+    <text x="10" y="38" class="text-focus-sub">Poll Swagger</text>
+    <text x="10" y="50" class="text-focus-sub">Automated pass</text>
+  </g>
+
+  <!-- Pipeline B: Angular on Cloudflare Pages -->
+  <path d="M 140 120 L 180 150" class="arrow" />
+
+  <g transform="translate(185, 125)">
+    <rect width="130" height="50" class="box" />
+    <text x="12" y="20" class="text-title">Linux Runner</text>
+    <text x="12" y="34" class="text-sub">Angular npm build</text>
+  </g>
+
+  <path d="M 315 150 L 345 150" class="arrow" />
+
+  <g transform="translate(350, 125)">
+    <rect width="135" height="50" class="box-accent" />
+    <text x="12" y="20" class="text-title">SonarQube Gate</text>
+    <text x="12" y="34" class="text-sub">Quality &amp; Security Gate</text>
+  </g>
+
+  <path d="M 485 150 L 515 150" class="arrow-accent" />
+
+  <g transform="translate(520, 125)">
+    <rect width="130" height="50" class="box" />
+    <text x="12" y="20" class="text-title">Wrangler Deploy</text>
+    <text x="12" y="34" class="text-sub">Config injection</text>
+  </g>
+
+  <path d="M 650 150 L 675 150" class="arrow-accent" />
+
+  <g transform="translate(680, 120)">
+    <rect width="100" height="60" class="box-focus" />
+    <text x="10" y="22" class="text-focus-title">Cloudflare</text>
+    <text x="10" y="38" class="text-focus-sub">Edge Pages CDN</text>
+    <text x="10" y="50" class="text-focus-sub">Zero downtime</text>
+  </g>
+
+  <!-- Bottom Notification Bar -->
+  <g transform="translate(20, 185)">
+    <rect width="760" height="26" class="box-infra" />
+    <text x="14" y="17" class="text-title">Safety &amp; Team Notifications: Microsoft Teams webhooks notify stage status · SonarQube blocks non-compliant MRs</text>
+  </g>
+</svg>

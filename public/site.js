@@ -1,3 +1,28 @@
+const root = document.documentElement;
+const themeToggle = document.querySelector("[data-theme-toggle]");
+
+const applyTheme = (theme) => {
+  root.dataset.theme = theme;
+  try {
+    localStorage.setItem("kh-theme", theme);
+  } catch {}
+  if (themeToggle) {
+    const label = theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+  }
+  document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+    meta.setAttribute("content", theme === "dark" ? "#0a0f0e" : "#f2f1ea");
+  });
+};
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
+  });
+  applyTheme(root.dataset.theme);
+}
+
 const toggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
 

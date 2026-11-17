@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { profile, education, certifications } from "../data/profile";
+import { profile, education, continuingEducation } from "../data/profile";
 ---
 
 <Base
@@ -122,15 +122,15 @@ import { profile, education, certifications } from "../data/profile";
     <dl class="resume-facts reveal">
       <div>
         <dt>Current role</dt>
-        <dd>{profile.company}, DevOps Engineer, Aug 2023 to present</dd>
+        <dd>{profile.company}, DevOps & DevSecOps Engineer, Aug 2023 to present</dd>
       </div>
       <div>
         <dt>Education</dt>
         <dd>{education.degree}, {education.school}, {education.year}</dd>
       </div>
       <div>
-        <dt>Certification</dt>
-        <dd>{certifications[0]}</dd>
+        <dt>Continuing education</dt>
+        <dd>{continuingEducation[0].title}, {continuingEducation[0].issuer}</dd>
       </div>
       <div>
         <dt>Contact</dt>

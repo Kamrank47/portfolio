@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: transparent; }
+      .box { fill: #fbfaf4; stroke: #b6bcae; stroke-width: 1.5; rx: 6px; }
+      .box-focus { fill: #0b2a22; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-accent { fill: #fbfaf4; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-infra { fill: #f2f1ea; stroke: #b6bcae; stroke-dasharray: 4 3; stroke-width: 1.2; rx: 6px; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0c1613; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #5c6a62; }
+      .text-focus-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #f5f7ef; }
+      .text-focus-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #c9f24d; }
+      .arrow { stroke: #0b2a22; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-accent { stroke: #2f8a5b; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-dashed { stroke: #5c6a62; stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; marker-end: url(#arrowhead-gray); }
+
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #101816; stroke: #31433a; }
+        .box-focus { fill: #061a15; stroke: #c9f24d; }
+        .box-accent { fill: #15201c; stroke: #5ee39a; }
+        .box-infra { fill: #0a0f0e; stroke: #1f2b25; }
+        .text-title { fill: #e8efe5; }
+        .text-sub { fill: #8b9c90; }
+        .text-focus-title { fill: #f5f7ef; }
+        .text-focus-sub { fill: #c9f24d; }
+        .arrow { stroke: #c9f24d; marker-end: url(#arrowhead-lime); }
+        .arrow-accent { stroke: #5ee39a; marker-end: url(#arrowhead-green); }
+        .arrow-dashed { stroke: #8b9c90; marker-end: url(#arrowhead-gray); }
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#0b2a22" />
+    </marker>
+    <marker id="arrowhead-lime" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#c9f24d" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#2f8a5b" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#5c6a62" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+
+  <!-- Stage 1: Data & Versioning (DVC + S3) -->
+  <g transform="translate(20, 28)">
+    <rect width="115" height="56" class="box" />
+    <text x="12" y="20" class="text-title">DVC + AWS S3</text>
+    <text x="12" y="34" class="text-sub">Data &amp; Model Versioning</text>
+    <text x="12" y="47" class="text-sub">Git-like semantics</text>
+  </g>
+
+  <path d="M 135 56 L 165 56" class="arrow" />
+
+  <!-- Stage 2: Training & Tracking (MLflow) -->
+  <g transform="translate(170, 28)">
+    <rect width="125" height="56" class="box-accent" />
+    <text x="12" y="20" class="text-title">MLflow Tracking</text>
+    <text x="12" y="34" class="text-sub">Parameters &amp; Metrics</text>
+    <text x="12" y="47" class="text-sub">Experiment Runs</text>
+  </g>
+
+  <path d="M 295 56 L 325 56" class="arrow" />
+
+  <!-- Stage 3: Model Registry -->
+  <g transform="translate(330, 28)">
+    <rect width="125" height="56" class="box" />
+    <text x="12" y="20" class="text-title">Model Registry</text>
+    <text x="12" y="34" class="text-sub">Staging → Prod</text>
+    <text x="12" y="47" class="text-sub">Version Approval Gate</text>
+  </g>
+
+  <path d="M 455 56 L 485 56" class="arrow-accent" />
+
+  <!-- Stage 4: Docker Containerization -->
+  <g transform="translate(490, 28)">
+    <rect width="110" height="56" class="box" />
+    <text x="12" y="20" class="text-title">Docker Packaging</text>
+    <text x="12" y="34" class="text-sub">Inference App</text>
+    <text x="12" y="47" class="text-sub">Multi-stage build</text>
+  </g>
+
+  <path d="M 600 56 L 630 56" class="arrow-accent" />
+
+  <!-- Stage 5: Target Serving (K8s + Streamlit) -->
+  <g transform="translate(635, 20)">
+    <rect width="145" height="72" class="box-focus" />
+    <text x="12" y="24" class="text-focus-title">Kubernetes</text>
+    <text x="12" y="40" class="text-focus-sub">Model Inference Pods</text>
+    <text x="12" y="54" class="text-focus-sub">Streamlit UI + REST API</text>
+  </g>
+
+  <!-- Retraining Loop & Drift Trigger -->
+  <g transform="translate(20, 115)">
+    <rect width="760" height="42" class="box-accent" />
+    <text x="16" y="18" class="text-title">Automated Retraining Loop: GitHub Actions CI/CD</text>
+    <text x="16" y="32" class="text-sub">Triggers on data drift / schedule · Executes automated evaluation · Verifies metric thresholds before registry promotion</text>
+  </g>
+
+  <path d="M 700 92 L 700 115" class="arrow-dashed" />
+  <path d="M 80 115 L 80 84" class="arrow-dashed" />
+
+  <!-- Foundation: Cloud Native Orchestration -->
+  <g transform="translate(20, 168)">
+    <rect width="760" height="38" class="box-infra" />
+    <text x="16" y="18" class="text-title">Cloud Native Infrastructure Foundation</text>
+    <text x="16" y="30" class="text-sub">Kubernetes Health Probes · Rolling Zero-Downtime Updates · Reproducible ML Environments</text>
+  </g>
+</svg>

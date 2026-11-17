@@ -10,13 +10,13 @@ import {
   experience,
   posts,
   education,
-  certifications,
+  continuingEducation,
 } from "../data/profile";
 ---
 
 <Base
-  title="Kamran Hashmi · DevOps Engineer, AI/ML infrastructure"
-  description="DevOps engineer in Lahore. Kubernetes, Terraform, CI/CD and observability for teams that need deploys to stop being events. 5 years, 4 in DevOps."
+  title="Kamran Hashmi · DevOps & DevSecOps Engineer"
+  description="DevOps and DevSecOps engineer in Lahore. Kubernetes, Terraform, CI/CD, security hardening and observability for teams that need deploys to stop being events."
 >
   <section class="hero">
     <div class="wrap hero__grid">
@@ -26,23 +26,36 @@ import {
           {profile.availability}
         </p>
 
-        <h1 class="hero__title">I make infrastructure <em>boring</em>.</h1>
+        <h1 class="hero__title">
+          <span class="line"><span>I make</span></span>
+          <span class="line"><span>infrastructure</span></span>
+          <span class="line"><span><em>boring</em>.</span></span>
+        </h1>
 
         <p class="hero__lede">
-          DevOps engineer in Lahore. Five years in software, four on the platform
-          layer: <strong>Kubernetes</strong> on EKS and AKS, <strong>Terraform</strong> and
-          Terragrunt, CI/CD, and the observability that tells you when any of it
-          breaks.
+          DevOps and DevSecOps engineer in Lahore. Five years in software, four on
+          the platform layer: <strong>Kubernetes</strong> on EKS and AKS,
+          <strong>Terraform</strong> and Terragrunt, CI/CD, security hardening, and
+          the observability that tells you when any of it breaks.
         </p>
 
         <div class="hero__actions">
           <a class="btn btn--primary" href={`mailto:${profile.email}`}>
-            Email me
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+            </svg>
+            <span>Email me</span>
             <span aria-hidden="true">→</span>
           </a>
-          <a class="btn btn--ghost" href="#work">See the work</a>
-          <a class="mono link-action" href="/resume">
-            Both CVs
+          <a class="btn btn--ghost" href="#work">
+            <span>Explore platforms</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a class="btn btn--ghost btn--sm mono" href="/resume">
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true">
+              <path d="M4 0h5.293A1 1 0 0 1 10 .293l3.707 3.707A1 1 0 0 1 14 4.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM4.5 9a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zM4 11.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5zm.5-5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+            </svg>
+            <span>Both CVs</span>
           </a>
         </div>
 
@@ -61,14 +74,14 @@ import {
           </div>
           <div class="meta-item">
             <dt>Focus</dt>
-            <dd>Platforms<br />AI/ML infrastructure</dd>
+            <dd>DevSecOps<br />MLOps</dd>
           </div>
         </dl>
       </div>
 
       <div class="hero__aside">
         <RunCard />
-        <p class="hero__aside-note reveal">
+        <p class="hero__aside-note">
           <strong>How to read this page.</strong> Every number comes from production
           work at Pikessoft, Northbay or DevSmith. The repositories below are the
           generalized versions, with client details replaced.
@@ -92,14 +105,22 @@ import {
         </div>
       </div>
 
-      <dl class="metrics reveal">
+      <dl class="metrics reveal stagger">
         {metrics.map((metric) => (
           <div class="metric">
-            <dt class="sr-only">{metric.label}</dt>
-            <dd class="metric__body">
+            <div class="metric__header">
               <span class="metric__value">
                 {metric.value}<span>{metric.unit}</span>
               </span>
+              {"trend" in metric && (
+                <span class="metric__trend">
+                  <span class="metric__trend-num">{metric.trend}</span>
+                  <span class="metric__trend-txt">{metric.trendLabel}</span>
+                </span>
+              )}
+            </div>
+            <dt class="sr-only">{metric.label}</dt>
+            <dd class="metric__body">
               <span class="metric__label">{metric.label}</span>
               <span class="metric__src">{metric.src}</span>
             </dd>
@@ -115,7 +136,7 @@ import {
         <p class="section__index">02 / Selected work</p>
         <div>
           <h2 class="section__title" id="work-title">
-            Four platforms, one pattern.
+            Five platforms, one pattern.
           </h2>
           <p class="section__intro">
             Every project here is a production pattern rebuilt as a reference
@@ -126,7 +147,7 @@ import {
         </div>
       </div>
 
-      <div class="themes reveal">
+      <div class="themes reveal stagger">
         <span class="eyebrow">Across every project</span>
         <ul class="tags">
           {projectThemes.map((theme) => <li class="tag">{theme}</li>)}
@@ -157,10 +178,19 @@ import {
         </div>
       </div>
 
-      <div class="stack reveal">
+      <div class="stack reveal stagger">
         {stack.map((group) => (
           <div class="stack__group">
-            <h3>{group.group}</h3>
+            <div class="stack__head">
+              <h3 class="stack__title">{group.group}</h3>
+            </div>
+            {"tags" in group && group.tags && (
+              <ul class="tags stack__tags">
+                {group.tags.map((tag: string) => (
+                  <li class="tag tag--tech">{tag}</li>
+                ))}
+              </ul>
+            )}
             <p class="stack__items">{group.items}</p>
           </div>
         ))}
@@ -184,13 +214,16 @@ import {
         </div>
       </div>
 
-      <div class="timeline">
+      <div class="timeline reveal stagger">
         {experience.map((job) => (
-          <article class="job reveal">
+          <article class="job">
             <div class="job__meta">
-              <h3 class="job__org">{job.org}</h3>
+              <div class="job__org-row">
+                <h3 class="job__org">{job.org}</h3>
+                <span class="job__badge">{job.location}</span>
+              </div>
               <p class="job__role">{job.role}</p>
-              <p class="job__dates">{job.dates}<br />{job.location}</p>
+              <p class="job__dates">{job.dates}</p>
             </div>
             <ul class="job__points">
               {job.points.map((point) => (
@@ -209,11 +242,11 @@ import {
           <p class="edu__detail">{education.coursework}</p>
         </div>
         <div class="edu__block">
-          <p class="eyebrow">Certification</p>
-          <h3>{certifications[0]}</h3>
-          <p class="edu__meta">Amazon Web Services</p>
+          <p class="eyebrow">Continuing education</p>
+          <h3>{continuingEducation[0].title}</h3>
+          <p class="edu__meta">{continuingEducation[0].issuer}</p>
           <p class="edu__detail">
-            Solutions architecture across compute, networking, storage and IAM.
+            {continuingEducation[0].detail}
           </p>
         </div>
       </div>
@@ -233,7 +266,7 @@ import {
         </div>
       </div>
 
-      <div class="posts reveal">
+      <div class="posts reveal stagger">
         {posts.map((post) => (
           <a class="post" href={post.href} rel="noopener">
             <span class="post__date">{post.date} · {post.read}</span>

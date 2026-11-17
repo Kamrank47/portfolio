@@ -1,7 +1,7 @@
 export const profile = {
   name: "Kamran Hashmi",
-  role: "DevOps Engineer",
-  focus: "AI/ML infrastructure",
+  role: "DevOps & DevSecOps Engineer",
+  focus: "platform engineering & MLOps",
   email: "kamranali.k47@gmail.com",
   phone: "+92-303-4145584",
   phoneHref: "+923034145584",
@@ -48,24 +48,32 @@ export const metrics = [
   {
     value: "90 → 14",
     unit: "min",
+    trend: "−84%",
+    trendLabel: "faster delivery",
     label: "Average deployment time across 6 product teams",
     src: "Pikessoft · CI/CD",
   },
   {
     value: "−50",
     unit: "%",
+    trend: "2x faster",
+    trendLabel: "incident response",
     label: "Mean time to detect after centralized alerting",
     src: "Pikessoft · Observability",
   },
   {
     value: "100",
     unit: "%",
+    trend: "Zero leaks",
+    trendLabel: "vault/secrets",
     label: "Deployed repositories with hard-coded credentials removed",
-    src: "Pikessoft · Secrets",
+    src: "Pikessoft · DevSecOps",
   },
   {
     value: "£9k → £3k",
     unit: "/mo",
+    trend: "−67%",
+    trendLabel: "cloud cost cut",
     label: "Client infrastructure spend, without losing a dev environment",
     src: "Pikessoft · Cost",
   },
@@ -234,51 +242,156 @@ export const projects = [
     ],
     repo: "https://github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines",
   },
+  {
+    num: "05",
+    kicker: "MLOps · model lifecycle",
+    title: "MLOps pipeline",
+    claim:
+      "End-to-end ML lifecycle from data versioning to model serving, applying DevOps practices to machine learning workloads.",
+    facts: [
+      {
+        key: "Data versioning",
+        value:
+          "DVC tracks datasets and model artifacts in S3, with Git-like semantics for reproducible training runs across the team.",
+      },
+      {
+        key: "Experiment tracking",
+        value:
+          "MLflow logs parameters, metrics and artifacts for every training run, with a central model registry for promotion from staging to production.",
+      },
+      {
+        key: "Serving",
+        value:
+          "Containerized inference behind a Streamlit UI and a REST API, deployed on Kubernetes with health checks and rolling updates.",
+      },
+      {
+        key: "CI/CD",
+        value:
+          "GitHub Actions pipeline retrains on data drift, runs validation, builds the container image and promotes through the model registry.",
+      },
+    ],
+    stack: [
+      "MLflow",
+      "DVC",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "Streamlit",
+      "Python",
+    ],
+    repo: "https://github.com/Kamrank47/mlops-zero-to-hero",
+  },
 ];
 
 export const projectThemes = [
   "Kubernetes",
   "Terraform",
   "CI/CD",
-  "Zero-trust secrets",
+  "DevSecOps",
   "Observability",
-  "Cost control",
+  "MLOps",
 ];
 
 export const stack = [
   {
     group: "Cloud & platforms",
+    icon: "cloud",
     items:
       "AWS (EKS, ECS/Fargate, EC2, S3, IAM, RDS, CloudWatch, CodePipeline); Azure (AKS, VMs, App Services, Blob Storage, MSSQL); GCP",
+    tags: [
+      "AWS (EKS, ECS, EC2)",
+      "Azure (AKS, VMs)",
+      "Google Cloud (GCP)",
+      "AWS IAM & KMS",
+      "Amazon S3 & RDS",
+      "CloudWatch",
+    ],
   },
   {
-    group: "Containers",
+    group: "Containers & orchestrators",
+    icon: "container",
     items:
       "Kubernetes, Amazon EKS, Azure AKS, Docker multi-stage builds, ECR, Kustomize, Helm, Argo CD, Argo Rollouts",
+    tags: [
+      "Kubernetes",
+      "Amazon EKS",
+      "Azure AKS",
+      "Docker",
+      "Argo CD",
+      "Argo Rollouts",
+      "Helm",
+      "Kustomize",
+      "Amazon ECR",
+    ],
   },
   {
     group: "Infrastructure as code",
+    icon: "code",
     items: "Terraform, Terragrunt, AWS CloudFormation, Ansible",
+    tags: [
+      "Terraform",
+      "Terragrunt",
+      "AWS CloudFormation",
+      "Ansible",
+      "S3 State Backend",
+      "DynamoDB Locking",
+    ],
   },
   {
-    group: "CI/CD & source",
+    group: "CI/CD & release pipelines",
+    icon: "pipeline",
     items:
       "GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, Azure DevOps Pipelines, Git, GitHub, GitLab, Bitbucket",
+    tags: [
+      "GitHub Actions",
+      "GitLab CI/CD",
+      "Jenkins",
+      "AWS CodePipeline",
+      "Blue/Green Deployments",
+      "Automated Smoke Tests",
+    ],
   },
   {
-    group: "Observability",
-    items:
-      "Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, New Relic",
-  },
-  {
-    group: "Linux & security",
+    group: "DevSecOps & Linux security",
+    icon: "shield",
     items:
       "Ubuntu, Amazon Linux, RHEL, Bash, Python, IAM least privilege, secrets management, image scanning, patching, firewall rules, Cloudflare Tunnel, VPN",
+    tags: [
+      "Trivy Vulnerability Scan",
+      "SonarQube Quality Gate",
+      "GitHub OIDC (Keyless)",
+      "KMS Envelope Encryption",
+      "Cloudflare Tunnel",
+      "Least-Privilege IAM",
+    ],
   },
   {
-    group: "AI/ML infrastructure",
+    group: "Observability & monitoring",
+    icon: "chart",
     items:
-      "MLOps fundamentals, model serving, containerized GPU workloads. Current study, applied in labs rather than production",
+      "Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, New Relic",
+    tags: [
+      "Prometheus",
+      "Grafana",
+      "Loki (Logging)",
+      "Alertmanager",
+      "CloudWatch",
+      "SLO / Latency Probes",
+    ],
+  },
+  {
+    group: "MLOps & AI infrastructure",
+    icon: "cpu",
+    items:
+      "MLflow, DVC, model serving, containerized inference, Streamlit, experiment tracking, Kubeflow fundamentals",
+    tags: [
+      "MLflow Experiment Tracking",
+      "DVC (Data Version Control)",
+      "Model Registry",
+      "Containerized Inference",
+      "Streamlit UI",
+      "Retraining CI/CD",
+    ],
   },
 ];
 
@@ -346,4 +459,13 @@ export const education = {
     "Operating Systems, Computer Networks, Distributed Systems, Cloud Computing",
 };
 
-export const certifications = ["AWS Solutions Architect (Pasha)"];
+export const continuingEducation = [
+  {
+    title: "MLOps Zero to Hero",
+    issuer: "Abhishek Veeramalla · Udemy",
+    detail:
+      "Production-grade MLOps: MLflow, DVC, Docker, Kubernetes, KServe, CI/CD for ML pipelines.",
+  },
+];
+
+export const certifications: string[] = [];

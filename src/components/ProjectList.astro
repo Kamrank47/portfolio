@@ -1,21 +1,51 @@
 ---
 import { projects } from "../data/profile";
+
+const diagrams = [
+  "/diagrams/eks-platform.svg",
+  "/diagrams/ec2-platform.svg",
+  "/diagrams/ecs-platform.svg",
+  "/diagrams/gitlab-cicd.svg",
+  "/diagrams/mlops-pipeline.svg",
+];
 ---
 
-<div class="work">
-  {projects.map((project) => (
-    <details class="project reveal">
+<div class="work reveal stagger">
+  {projects.map((project, i) => (
+    <details class="project" open={i === 0}>
       <summary class="project__summary">
         <span class="project__num">{project.num}</span>
-        <span>
+        <div class="project__head-content">
           <span class="project__kicker">{project.kicker}</span>
           <span class="project__title">{project.title}</span>
-        </span>
+        </div>
         <span class="project__claim">{project.claim}</span>
-        <span class="project__toggle" aria-hidden="true">+</span>
+        <div class="project__toggle-wrap">
+          <span class="project__toggle-text">Explore</span>
+          <span class="project__toggle" aria-hidden="true">+</span>
+        </div>
       </summary>
 
       <div class="project__panel">
+        {diagrams[i] && (
+          <div class="project__diagram-wrap">
+            <div class="project__diagram-header">
+              <span class="project__diagram-dot" aria-hidden="true"></span>
+              <span class="project__diagram-label">Architecture &amp; Pipeline Topology</span>
+            </div>
+            <div class="project__diagram-frame">
+              <img
+                class="project__diagram"
+                src={diagrams[i]}
+                alt={`Architecture flow diagram for ${project.title}`}
+                width="800"
+                height="220"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        )}
+
         <div class="project__facts">
           {project.facts.map((fact) => (
             <div class="fact">
@@ -26,14 +56,17 @@ import { projects } from "../data/profile";
         </div>
 
         <div class="project__side">
-          <p class="stack-label">Stack</p>
+          <p class="stack-label">Ecosystem &amp; Tools</p>
           <ul class="tags">
             {project.stack.map((item) => (
               <li class="tag">{item}</li>
             ))}
           </ul>
-          <a class="project__link" href={project.repo} rel="noopener">
-            Read the repository
+          <a class="project__link btn btn--sm btn--primary" href={project.repo} target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            <span>View Source Code</span>
             <span aria-hidden="true">↗</span>
           </a>
         </div>
