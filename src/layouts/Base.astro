@@ -104,7 +104,7 @@ const person = {
           {social.map((item) => (
             <a class="nav__link" href={item.href}>{item.label}</a>
           ))}
-          <a class="btn btn--primary nav__cta" href={profile.cvs.reference.href} download>Download CV</a>
+          <a class="btn btn--primary nav__cta" href={profile.cvs.reference.href} download>Download resume</a>
         </nav>
 
         <button
@@ -123,7 +123,7 @@ const person = {
           </svg>
         </button>
 
-        <a class="btn btn--sm btn--primary" href={profile.cvs.reference.href} download>Download CV</a>
+        <a class="btn btn--sm btn--primary" href={profile.cvs.reference.href} download>Download resume</a>
       </div>
     </header>
 
@@ -135,9 +135,9 @@ const person = {
       <div class="wrap site-footer__inner">
         <span>© {new Date().getFullYear()} {profile.name} · {profile.location}</span>
         <span>
-          <a href={profile.links.github} rel="me noopener">GitHub</a> ·
-          <a href={profile.links.linkedin} rel="me noopener">LinkedIn</a> ·
-          <a href={profile.links.medium} rel="me noopener">Medium</a>
+          <a href={profile.links.github} target="_blank" rel="me noopener noreferrer">GitHub</a> ·
+          <a href={profile.links.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn</a> ·
+          <a href={profile.links.medium} target="_blank" rel="me noopener noreferrer">Medium</a>
         </span>
         <span>Astro · Cloudflare Pages</span>
       </div>

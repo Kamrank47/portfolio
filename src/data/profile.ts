@@ -1,7 +1,7 @@
 export const profile = {
   name: "Kamran Hashmi",
-  role: "DevOps & DevSecOps Engineer",
-  focus: "platform engineering & MLOps",
+  role: "DevSecOps Engineer",
+  focus: "AIOps",
   email: "kamranali.k47@gmail.com",
   phone: "+92-303-4145584",
   phoneHref: "+923034145584",
@@ -16,12 +16,12 @@ export const profile = {
   },
   cvs: {
     reference: {
-      href: "/resume/Kamran-Hashmi-CV.pdf",
-      label: "Kamran-Hashmi-CV.pdf",
+      href: "/resume/Kamran-Hashmi-Resume.pdf",
+      label: "Kamran-Hashmi-Resume.pdf",
     },
     modern: {
-      href: "/resume/Kamran-Hashmi-CV-Modern.pdf",
-      label: "Kamran-Hashmi-CV-Modern.pdf",
+      href: "/resume/Kamran-Hashmi-Resume-Modern.pdf",
+      label: "Kamran-Hashmi-Resume-Modern.pdf",
     },
   },
 } as const;
@@ -296,11 +296,11 @@ export const stack = [
   {
     group: "Cloud & platforms",
     icon: "cloud",
-    items:
-      "AWS (EKS, ECS/Fargate, EC2, S3, IAM, RDS, CloudWatch, CodePipeline); Azure (AKS, VMs, App Services, Blob Storage, MSSQL); GCP",
     tags: [
       "AWS (EKS, ECS, EC2)",
+      "AWS Fargate",
       "Azure (AKS, VMs)",
+      "Azure App Services",
       "Google Cloud (GCP)",
       "AWS IAM & KMS",
       "Amazon S3 & RDS",
@@ -310,8 +310,6 @@ export const stack = [
   {
     group: "Containers & orchestrators",
     icon: "container",
-    items:
-      "Kubernetes, Amazon EKS, Azure AKS, Docker multi-stage builds, ECR, Kustomize, Helm, Argo CD, Argo Rollouts",
     tags: [
       "Kubernetes",
       "Amazon EKS",
@@ -327,7 +325,6 @@ export const stack = [
   {
     group: "Infrastructure as code",
     icon: "code",
-    items: "Terraform, Terragrunt, AWS CloudFormation, Ansible",
     tags: [
       "Terraform",
       "Terragrunt",
@@ -340,13 +337,13 @@ export const stack = [
   {
     group: "CI/CD & release pipelines",
     icon: "pipeline",
-    items:
-      "GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, Azure DevOps Pipelines, Git, GitHub, GitLab, Bitbucket",
     tags: [
       "GitHub Actions",
       "GitLab CI/CD",
       "Jenkins",
       "AWS CodePipeline",
+      "Azure DevOps",
+      "Git & GitHub",
       "Blue/Green Deployments",
       "Automated Smoke Tests",
     ],
@@ -354,8 +351,6 @@ export const stack = [
   {
     group: "DevSecOps & Linux security",
     icon: "shield",
-    items:
-      "Ubuntu, Amazon Linux, RHEL, Bash, Python, IAM least privilege, secrets management, image scanning, patching, firewall rules, Cloudflare Tunnel, VPN",
     tags: [
       "Trivy Vulnerability Scan",
       "SonarQube Quality Gate",
@@ -363,27 +358,27 @@ export const stack = [
       "KMS Envelope Encryption",
       "Cloudflare Tunnel",
       "Least-Privilege IAM",
+      "Linux (RHEL / Ubuntu)",
+      "Bash & Python",
     ],
   },
   {
     group: "Observability & monitoring",
     icon: "chart",
-    items:
-      "Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, New Relic",
     tags: [
       "Prometheus",
       "Grafana",
       "Loki (Logging)",
       "Alertmanager",
       "CloudWatch",
+      "Datadog",
+      "New Relic",
       "SLO / Latency Probes",
     ],
   },
   {
     group: "MLOps & AI infrastructure",
     icon: "cpu",
-    items:
-      "MLflow, DVC, model serving, containerized inference, Streamlit, experiment tracking, Kubeflow fundamentals",
     tags: [
       "MLflow Experiment Tracking",
       "DVC (Data Version Control)",
@@ -398,7 +393,7 @@ export const stack = [
 export const experience = [
   {
     org: "Pikessoft",
-    role: "DevOps Engineer",
+    role: "DevSecOps Engineer",
     dates: "Aug 2023 – Present",
     location: "Lahore, Pakistan",
     points: [
@@ -459,6 +454,15 @@ export const education = {
     "Operating Systems, Computer Networks, Distributed Systems, Cloud Computing",
 };
 
+export const certifications = [
+  {
+    title: "AWS Certified Solutions Architect",
+    issuer: "Amazon Web Services",
+    detail:
+      "Compute, networking, storage, IAM and high-availability architecture.",
+  },
+];
+
 export const continuingEducation = [
   {
     title: "MLOps Zero to Hero",
@@ -468,4 +472,3 @@ export const continuingEducation = [
   },
 ];
 
-export const certifications: string[] = [];

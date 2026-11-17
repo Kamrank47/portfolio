@@ -39,12 +39,12 @@ async function findChromium() {
 const builds = [
   {
     source: "cv/reference.html",
-    pdf: "Kamran-Hashmi-CV.pdf",
+    pdf: "Kamran-Hashmi-Resume.pdf",
     preview: "preview-reference.png",
   },
   {
     source: "cv/modern.html",
-    pdf: "Kamran-Hashmi-CV-Modern.pdf",
+    pdf: "Kamran-Hashmi-Resume-Modern.pdf",
     preview: "preview-modern.png",
   },
 ];

@@ -1,29 +1,29 @@
 ---
 import Base from "../layouts/Base.astro";
-import { profile, education, continuingEducation } from "../data/profile";
+import { profile, education, continuingEducation, certifications } from "../data/profile";
 ---
 
 <Base
   title="Resume · Kamran Hashmi"
-  description="Two versions of Kamran Hashmi's CV: a traditional two-page format for ATS and forwarding, and a modern layout for a first read."
+  description="Two versions of Kamran Hashmi's resume: a traditional two-page format for ATS and forwarding, and a modern layout for a first read."
 >
   <section class="page-head">
     <div class="wrap">
       <p class="eyebrow">Resume</p>
       <h1 class="mt-16">Same experience. Two formats.</h1>
       <p>
-        The first is the traditional two-page CV, built to survive an applicant
+        The first is the traditional two-page resume, built to survive an applicant
         tracking system and to forward cleanly inside a company. The second is a
         modern layout for the first read. Both say the same thing, because a
         recruiter should never have to compare two stories.
       </p>
       <div class="hero__actions mt-24">
         <a class="btn btn--primary" href={profile.cvs.reference.href} download>
-          Download traditional CV
+          Download traditional resume
           <span aria-hidden="true">↓</span>
         </a>
         <a class="btn btn--ghost" href={profile.cvs.modern.href} download>
-          Download modern CV
+          Download modern resume
           <span aria-hidden="true">↓</span>
         </a>
       </div>
@@ -33,9 +33,9 @@ import { profile, education, continuingEducation } from "../data/profile";
   <div class="wrap">
     <div class="cv-note" role="note">
       <p>
-        <strong>For ATS and forwarding, use the traditional CV.</strong> It is text
+        <strong>For ATS and forwarding, use the traditional resume.</strong> It is text
         based, single column, no tables, and parses cleanly in Workday, Greenhouse
-        and Lever. The modern version is for humans, not parsers.
+        and Lever. The modern resume is for humans, not parsers.
       </p>
     </div>
 
@@ -44,13 +44,13 @@ import { profile, education, continuingEducation } from "../data/profile";
         <a
           class="cv-card__preview"
           href={profile.cvs.reference.href}
-          aria-label="Open the traditional CV in a new tab"
+          aria-label="Open the traditional resume in a new tab"
           target="_blank"
           rel="noopener"
         >
           <img
             src="/resume/preview-reference.png"
-            alt="Page one of Kamran Hashmi's traditional CV: name, contact details, professional summary, technical skills and professional experience."
+            alt="Page one of Kamran Hashmi's traditional resume: name, contact details, professional summary, technical skills and professional experience."
             width="1240"
             height="1754"
             loading="lazy"
@@ -58,7 +58,7 @@ import { profile, education, continuingEducation } from "../data/profile";
         </a>
         <div class="cv-card__body">
           <p class="cv-card__tag">Traditional · 2 pages · A4</p>
-          <h2>Kamran-Hashmi-CV.pdf</h2>
+          <h2>{profile.cvs.reference.label}</h2>
           <p>
             Centered header, navy section rules, dense experience detail. The version
             to send when a portal asks for a file.
@@ -83,13 +83,13 @@ import { profile, education, continuingEducation } from "../data/profile";
         <a
           class="cv-card__preview"
           href={profile.cvs.modern.href}
-          aria-label="Open the modern CV in a new tab"
+          aria-label="Open the modern resume in a new tab"
           target="_blank"
           rel="noopener"
         >
           <img
             src="/resume/preview-modern.png"
-            alt="Page one of Kamran Hashmi's modern CV: name, role, contact details, impact metrics, experience and selected projects."
+            alt="Page one of Kamran Hashmi's modern resume: name, role, contact details, impact metrics, experience and selected projects."
             width="1240"
             height="1754"
             loading="lazy"
@@ -97,7 +97,7 @@ import { profile, education, continuingEducation } from "../data/profile";
         </a>
         <div class="cv-card__body">
           <p class="cv-card__tag">Modern · 2 pages · A4</p>
-          <h2>Kamran-Hashmi-CV-Modern.pdf</h2>
+          <h2>{profile.cvs.modern.label}</h2>
           <p>
             Impact first, then evidence. Numbers up top, project detail under each
             role. The version to send when a person is reading, not a portal.
@@ -122,11 +122,15 @@ import { profile, education, continuingEducation } from "../data/profile";
     <dl class="resume-facts reveal">
       <div>
         <dt>Current role</dt>
-        <dd>{profile.company}, DevOps & DevSecOps Engineer, Aug 2023 to present</dd>
+        <dd>{profile.company}, DevSecOps Engineer, Aug 2023 to present</dd>
       </div>
       <div>
         <dt>Education</dt>
         <dd>{education.degree}, {education.school}, {education.year}</dd>
+      </div>
+      <div>
+        <dt>Certification</dt>
+        <dd>{certifications[0].title}, {certifications[0].issuer}</dd>
       </div>
       <div>
         <dt>Continuing education</dt>

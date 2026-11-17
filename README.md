@@ -1,20 +1,20 @@
 # Kamran Hashmi — portfolio
 
 A static portfolio for a DevOps engineer, built with Astro and deployed on Cloudflare Pages.
-Two CVs are generated from the same source and shipped with the site.
+Two resumes are generated from the same source and shipped with the site.
 
 ## What's in here
 
 | Path | Purpose |
 | --- | --- |
 | `src/pages/index.astro` | Home page: hero, impact, selected work, stack, experience, writing, contact |
-| `src/pages/resume.astro` | Resume page with both CV downloads and page previews |
+| `src/pages/resume.astro` | Resume page with both resume downloads and page previews |
 | `src/data/profile.ts` | All content. Edit copy here, not in the templates |
 | `src/styles/global.css` | Design tokens, layout and components |
-| `cv/reference.html` | Traditional two-page CV (ATS-friendly, single column) |
-| `cv/modern.html` | Modern two-page CV (impact-first layout) |
+| `cv/reference.html` | Traditional two-page resume (ATS-friendly, single column) |
+| `cv/modern.html` | Modern two-page resume (impact-first layout) |
 | `cv/og.html` | 1200x630 social card |
-| `scripts/build-cv.mjs` | Renders both CVs to PDF, plus previews and `og.png` |
+| `scripts/build-cv.mjs` | Renders both resumes to PDF, plus previews and `og.png` |
 | `public/resume/` | Generated PDFs and preview images (committed) |
 
 ## Local development
@@ -28,9 +28,9 @@ npm run preview    # serve dist/
 
 Node 22 (see `.nvmrc`).
 
-## Regenerating the CVs
+## Regenerating the resumes
 
-The CVs are HTML with print CSS, rendered to A4 PDF with Chromium through Playwright.
+The resumes are HTML with print CSS, rendered to A4 PDF with Chromium through Playwright.
 
 ```bash
 npm run cv
@@ -38,8 +38,8 @@ npm run cv
 
 This writes:
 
-- `public/resume/Kamran-Hashmi-CV.pdf` — traditional format
-- `public/resume/Kamran-Hashmi-CV-Modern.pdf` — modern format
+- `public/resume/Kamran-Hashmi-Resume.pdf` — traditional format
+- `public/resume/Kamran-Hashmi-Resume-Modern.pdf` — modern format
 - `public/resume/preview-reference.png`, `preview-modern.png` — page-one previews
 - `public/og.png` — social card
 
@@ -90,7 +90,7 @@ npx wrangler pages deploy dist --project-name kamranhashmi
 
 1. `npm ci`
 2. `npm run build`
-3. Verifies the expected static files exist (including both CV PDFs and `og.png`)
+3. Verifies the expected static files exist (including both resume PDFs and `og.png`)
 4. Runs `scripts/check-links.mjs` to catch broken internal links
 5. Uploads the build as an artifact
 
@@ -123,5 +123,5 @@ and drop the URL from `script-src`.
 ## Content edits
 
 - Copy and metrics: `src/data/profile.ts`
-- CV wording: `cv/reference.html` and `cv/modern.html`, then `npm run cv`
+- Resume wording: `cv/reference.html` and `cv/modern.html`, then `npm run cv`
 - Colours, type and spacing: the token block at the top of `src/styles/global.css`
