@@ -80,8 +80,8 @@ manually from the Actions tab. Use one option, not both, to avoid duplicate depl
 
 ```bash
 npx wrangler login
-npx wrangler pages project create kamran-hashmi-portfolio --production-branch main
-npx wrangler pages deploy dist --project-name kamran-hashmi-portfolio
+npx wrangler pages project create kamranhashmi --production-branch main
+npx wrangler pages deploy dist --project-name kamranhashmi
 ```
 
 ## CI
