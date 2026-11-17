@@ -1434,20 +1434,58 @@ main {
   line-height: 0.9;
 }
 
-/* ---------- reveal ---------- */
+/* ---------- utilities ---------- */
 
-.js .reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 640ms var(--ease-out),
-    transform 640ms var(--ease-out);
-  transition-delay: var(--delay, 0ms);
+.mt-8 {
+  margin-top: 8px;
 }
 
-.js .reveal.is-visible {
-  opacity: 1;
-  transform: none;
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.metric__body {
+  margin: 0;
+}
+
+.contact .eyebrow {
+  color: #8fa294;
+}
+
+.notfound__lede {
+  color: var(--ink-soft);
+  max-width: 40ch;
+}
+
+/* stage bar proportions and stagger */
+
+.stage:nth-child(1) .stage__fill { --w: 8%; --delay: 120ms; }
+.stage:nth-child(2) .stage__fill { --w: 16%; --delay: 230ms; }
+.stage:nth-child(3) .stage__fill { --w: 48%; --delay: 340ms; }
+.stage:nth-child(4) .stage__fill { --w: 12%; --delay: 450ms; }
+.stage:nth-child(5) .stage__fill { --w: 14%; --delay: 560ms; }
+.stage:nth-child(6) .stage__fill { --w: 68%; --delay: 670ms; }
+
+/* ---------- reveal ---------- */
+
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 640ms var(--ease-out),
+      transform 640ms var(--ease-out);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1463,7 +1501,7 @@ main {
     transition-duration: 0.001ms !important;
   }
 
-  .js .reveal {
+  .reveal {
     opacity: 1;
     transform: none;
   }

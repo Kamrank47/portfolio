@@ -11,16 +11,13 @@ import { run } from "../data/profile";
   </div>
 
   <ol class="run__stages">
-    {run.stages.map((stage, index) => (
+    {run.stages.map((stage) => (
       <li class="stage">
         <span class="stage__status" aria-hidden="true">✓</span>
         <span class="stage__body">
           <span class="stage__name">{stage.name}</span>
           <span class="stage__track">
-            <span
-              class="stage__fill"
-              style={`--w:${stage.width}%;--delay:${120 + index * 110}ms`}
-            ></span>
+            <span class="stage__fill"></span>
           </span>
         </span>
         <span class="stage__time">{stage.time}</span>

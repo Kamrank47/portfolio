@@ -96,7 +96,7 @@ import {
         {metrics.map((metric) => (
           <div class="metric">
             <dt class="sr-only">{metric.label}</dt>
-            <dd style="margin:0">
+            <dd class="metric__body">
               <span class="metric__value">
                 {metric.value}<span>{metric.unit}</span>
               </span>
@@ -243,7 +243,7 @@ import {
         ))}
       </div>
 
-      <p class="work-note mono reveal" style="margin-top:24px">
+      <p class="work-note mono reveal">
         <a href={profile.links.medium} rel="noopener">All writing on Medium ↗</a>
       </p>
     </div>
@@ -252,8 +252,8 @@ import {
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap contact__inner">
       <div class="reveal">
-        <p class="eyebrow" style="color:#8fa294">06 / Contact</p>
-        <h2 id="contact-title" style="margin-top:16px">
+        <p class="eyebrow">06 / Contact</p>
+        <h2 id="contact-title" class="mt-16">
           Let’s make your deploys <em>boring</em>.
         </h2>
         <p class="contact__lede">

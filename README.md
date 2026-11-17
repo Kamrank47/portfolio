@@ -101,6 +101,17 @@ Cloudflare, the CNAME is created automatically. Update `site` in
 `astro.config.mjs` and the absolute URLs in `public/robots.txt` to match, then
 rebuild so canonical and social URLs point at the real domain.
 
+## Security
+
+Details in [SECURITY.md](SECURITY.md). The deployed site sends a strict CSP
+(`script-src 'self'`, `style-src 'self'`, no `unsafe-inline`), HSTS, frame denial,
+`nosniff`, COOP/CORP and a restrictive Permissions-Policy from `public/_headers`.
+`scripts/check-csp.mjs` fails CI if a build reintroduces inline scripts, inline
+style attributes or inline event handlers. Dependabot, CodeQL and secret scanning
+with push protection are enabled on the repository.
+
+Report a vulnerability to kamranali.k47@gmail.com.
+
 ## Content edits
 
 - Copy and metrics: `src/data/profile.ts`

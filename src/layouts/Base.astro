@@ -49,7 +49,6 @@ const person = {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script is:inline>document.documentElement.classList.add("js");</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -70,6 +69,7 @@ const person = {
     <meta name="twitter:image" content={new URL("/og.png", canonical).href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title={`${profile.name} · writing`} href="/rss.xml" />
+    <script is:inline defer src="/site.js"></script>
     <script type="application/ld+json" set:html={JSON.stringify(person)} is:inline />
   </head>
   <body>
@@ -119,58 +119,5 @@ const person = {
       </div>
     </footer>
 
-    <script>
-      const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
-      const nav = document.querySelector<HTMLElement>("[data-nav]");
-
-      if (toggle && nav) {
-        const setOpen = (open: boolean) => {
-          nav.dataset.open = String(open);
-          toggle.setAttribute("aria-expanded", String(open));
-          toggle.textContent = open ? "Close" : "Menu";
-          if (open) document.body.dataset.navOpen = "true";
-          else delete document.body.dataset.navOpen;
-        };
-
-        toggle.addEventListener("click", () => {
-          setOpen(toggle.getAttribute("aria-expanded") !== "true");
-        });
-
-        nav.addEventListener("click", (event) => {
-          if ((event.target as HTMLElement).closest("a") && window.innerWidth <= 900) setOpen(false);
-        });
-
-        window.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && nav.dataset.open === "true") {
-            setOpen(false);
-            toggle.focus();
-          }
-        });
-
-        window.addEventListener("resize", () => {
-          if (window.innerWidth > 900 && nav.dataset.open === "true") setOpen(false);
-        });
-      }
-
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const targets = document.querySelectorAll<HTMLElement>(".reveal");
-
-      if (reduce || !("IntersectionObserver" in window)) {
-        targets.forEach((el) => el.classList.add("is-visible"));
-      } else {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
-        );
-        targets.forEach((el) => observer.observe(el));
-      }
-    </script>
   </body>
 </html>
