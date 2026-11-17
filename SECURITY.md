@@ -23,7 +23,8 @@ Out of scope:
 
 ## Posture
 
-- Static site, no server-side code, no forms, no cookies, no analytics
+- Static site, no server-side code, no forms, no cookies
+- Cloudflare Web Analytics only: one edge-injected script with SRI, allowed by exact URL in `script-src`, reporting to the same origin
 - Strict Content-Security-Policy with no `unsafe-inline` for scripts or styles
 - HSTS, frame denial, nosniff, referrer and permissions policies set in `public/_headers`
 - Dependencies and GitHub Actions audited weekly by Dependabot
@@ -40,8 +41,8 @@ Out of scope:
 | A05 Injection | No runtime input | Static HTML with no interpreter, no database, and no query reflection. DOM updates use `textContent` and `classList`; JSON-LD escapes `<` |
 | A06 Insecure Design | Minimised | No authentication, transactions, uploads or business logic to attack; single static surface |
 | A07 Authentication Failures | Not applicable | Nothing authenticates. Repository access uses SSH keys plus MFA on the GitHub account |
-| A08 Software or Data Integrity Failures | Yes | Dependencies come from the npm registry with lockfile hashes, no third-party scripts or CDNs, fonts self-hosted, security scans on every commit |
-| A09 Security Logging and Alerting Failures | Limited by platform | No server to log. GitHub Actions retains build and deploy logs; Cloudflare holds access analytics and deployment history. No PII is logged by the site |
+| A08 Software or Data Integrity Failures | Yes | Dependencies come from the npm registry with lockfile hashes; the only third-party script is Cloudflare's beacon, allowed by exact URL with SRI; fonts self-hosted; security scans on every commit |
+| A09 Security Logging and Alerting Failures | Limited by platform | No server to log. GitHub Actions retains build and deploy logs; Cloudflare Web Analytics and edge analytics provide visit and performance data. No PII is logged by the site |
 | A10 Mishandling of Exceptional Conditions | Yes | Custom 404 for unknown paths, no server-side state to corrupt, unknown routes fail closed |
 
 ## Known accepted risk

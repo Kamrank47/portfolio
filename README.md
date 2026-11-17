@@ -112,12 +112,12 @@ with push protection are enabled on the repository.
 
 Report a vulnerability to kamranali.k47@gmail.com.
 
-The Pages project has Cloudflare Web Analytics enabled, which injects
-`static.cloudflareinsights.com/beacon.min.js` into HTML at the edge. The CSP
-blocks it by design, so browsers log one violation. To silence it, turn Web
-Analytics off in the Pages project under **Metrics**, or explicitly allow
-`https://static.cloudflareinsights.com` in `script-src` if the analytics is
-wanted.
+The Pages project has Cloudflare Web Analytics enabled, so the edge injects
+`static.cloudflareinsights.com/beacon.min.js` into HTML. The CSP allows exactly
+that script URL and nothing else from the host. Beacons post to the same origin
+at `/cdn-cgi/rum`, which `connect-src 'self'` covers. To remove the third-party
+script entirely, disable Web Analytics under the Pages project's **Metrics** tab
+and drop the URL from `script-src`.
 
 ## Content edits
 
