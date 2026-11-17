@@ -23,21 +23,21 @@ for (const file of files) {
   const html = await readFile(file, "utf8");
   const page = "/" + path.relative(dist, file).replace(/\\/g, "/");
 
-  for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
+  for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)) {
     const attrs = match[1];
     const body = match[2].trim();
-    const isData = /application\/ld\+json/.test(attrs);
+    const isData = /application\/ld\+json/i.test(attrs);
     const hasSrc = /\bsrc=/.test(attrs);
     if (!isData && !hasSrc && body.length > 0) {
       problems.push(`${page}: inline script would be blocked by script-src 'self'`);
     }
   }
 
-  if (/\sstyle="/.test(html)) {
+  if (/\sstyle="/i.test(html)) {
     problems.push(`${page}: inline style attribute would be blocked by style-src 'self'`);
   }
 
-  if (/on(click|load|error|mouseover|submit)=/.test(html)) {
+  if (/\son(click|load|error|mouseover|submit)\s*=/i.test(html)) {
     problems.push(`${page}: inline event handler would be blocked by script-src 'self'`);
   }
 }
