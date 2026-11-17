@@ -23,7 +23,7 @@ for (const file of files) {
   const html = await readFile(file, "utf8");
   const page = "/" + path.relative(dist, file).replace(/\\/g, "/");
 
-  for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)) {
+  for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script[^>]*>/gi)) {
     const attrs = match[1];
     const body = match[2].trim();
     const isData = /application\/ld\+json/i.test(attrs);
