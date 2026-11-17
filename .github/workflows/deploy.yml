@@ -1,0 +1,47 @@
+name: Deploy to Cloudflare Pages
+
+# Cloudflare Pages Git integration is the primary deploy path: every push to
+# main builds and deploys automatically once the Pages project is connected to
+# this repository. This workflow is the manual fallback (or the only path if
+# you prefer deploys to run from GitHub Actions).
+#
+# Enable it by setting the repository variable ENABLE_CLOUDFLARE_DEPLOY to
+# "true" and adding the CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to Pages
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.ENABLE_CLOUDFLARE_DEPLOY == 'true' }}
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name kamran-hashmi-portfolio --branch ${{ github.ref_name }}

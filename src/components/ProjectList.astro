@@ -1,0 +1,43 @@
+---
+import { projects } from "../data/profile";
+---
+
+<div class="work">
+  {projects.map((project) => (
+    <details class="project reveal">
+      <summary class="project__summary">
+        <span class="project__num">{project.num}</span>
+        <span>
+          <span class="project__kicker">{project.kicker}</span>
+          <span class="project__title">{project.title}</span>
+        </span>
+        <span class="project__claim">{project.claim}</span>
+        <span class="project__toggle" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="project__panel">
+        <div class="project__facts">
+          {project.facts.map((fact) => (
+            <div class="fact">
+              <span class="fact__key">{fact.key}</span>
+              <span class="fact__val">{fact.value}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="project__side">
+          <h4>Stack</h4>
+          <ul class="tags">
+            {project.stack.map((item) => (
+              <li class="tag">{item}</li>
+            ))}
+          </ul>
+          <a class="project__link" href={project.repo} rel="noopener">
+            Read the repository
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </details>
+  ))}
+</div>

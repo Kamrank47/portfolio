@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kamran Hashmi · CV</title>
+    <meta name="author" content="Kamran Hashmi" />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      body {
+        font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
+        font-size: 9.1pt;
+        line-height: 1.38;
+        color: #1c1c1c;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 11mm 14mm 12mm;
+      }
+
+      a {
+        color: #1f3864;
+        text-decoration: none;
+      }
+
+      header {
+        text-align: center;
+        padding-bottom: 3mm;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 21pt;
+        line-height: 1.1;
+        letter-spacing: 0.06em;
+        color: #1f3864;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .role {
+        margin: 2mm 0 0;
+        font-size: 10.2pt;
+        color: #4a4a4a;
+        letter-spacing: 0.01em;
+      }
+
+      .contact {
+        margin: 2mm 0 0;
+        font-size: 8.5pt;
+        color: #5c5c5c;
+        line-height: 1.5;
+      }
+
+      .contact span + span::before {
+        content: " | ";
+        color: #b3b3b3;
+      }
+
+      section {
+        margin-top: 2.2mm;
+      }
+
+      h2 {
+        margin: 0 0 1.6mm;
+        padding-bottom: 0.7mm;
+        font-size: 9.6pt;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #1f3864;
+        border-bottom: 1pt solid #1f3864;
+        break-after: avoid;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      b,
+      strong {
+        font-weight: 700;
+        color: #101010;
+      }
+
+      .skills p {
+        margin: 0 0 1.1mm;
+        font-size: 8.8pt;
+        line-height: 1.42;
+      }
+
+      .skills .label {
+        font-weight: 700;
+        color: #1f3864;
+      }
+
+      .job {
+        margin-bottom: 2.6mm;
+        break-inside: avoid;
+      }
+
+      .job-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 6mm;
+      }
+
+      .job-title {
+        font-size: 9.9pt;
+        font-weight: 700;
+        color: #101010;
+      }
+
+      .job-title .org {
+        color: #1f3864;
+      }
+
+      .job-dates {
+        font-size: 8.6pt;
+        color: #4a4a4a;
+        white-space: nowrap;
+      }
+
+      .job-loc {
+        font-size: 8.4pt;
+        color: #666;
+        margin: 0.3mm 0 1.2mm;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 4.2mm;
+      }
+
+      li {
+        margin: 0 0 0.9mm;
+        padding-left: 0.6mm;
+      }
+
+      li::marker {
+        color: #1f3864;
+      }
+
+      .project {
+        margin-bottom: 2.4mm;
+        break-inside: avoid;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-size: 9.2pt;
+        font-weight: 700;
+        color: #101010;
+      }
+
+      .project h3 a {
+        font-weight: 400;
+        font-size: 8.3pt;
+        color: #1f3864;
+        text-decoration: underline;
+      }
+
+      .project p {
+        margin: 0.7mm 0 0;
+        font-size: 8.9pt;
+        line-height: 1.4;
+      }
+
+      .project .tech {
+        color: #1f3864;
+        font-size: 8.4pt;
+        margin-top: 0.6mm;
+      }
+
+      .edu-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 6mm;
+        font-size: 9.2pt;
+      }
+
+      .edu-line .dates {
+        color: #4a4a4a;
+        font-size: 8.6pt;
+      }
+
+      .muted {
+        color: #5f5f5f;
+        font-size: 8.5pt;
+        margin-top: 0.6mm;
+      }
+
+      .pub {
+        font-size: 9pt;
+      }
+
+      .page-break {
+        break-before: page;
+        padding-top: 11mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <header>
+        <h1>Kamran Hashmi</h1>
+        <p class="role">DevOps Engineer | AI/ML Infrastructure | Platform Engineering</p>
+        <p class="contact">
+          <span>Lahore, Pakistan</span>
+          <span>+92-303-4145584</span>
+          <span>kamranali.k47@gmail.com</span>
+          <br />
+          <span>linkedin.com/in/kamhash</span>
+          <span>github.com/Kamrank47</span>
+          <span>medium.com/@kamranali.k47</span>
+        </p>
+      </header>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          DevOps Engineer with 5 years in software engineering and 4 focused on DevOps,
+          operating the platform layer AI workloads run on: <b>Kubernetes</b> on AWS EKS and
+          Azure AKS, <b>Terraform</b> and Terragrunt, <b>GitHub Actions</b> and GitLab CI, and
+          Prometheus/Grafana observability. Cut deployment time from 90 minutes to under 15
+          across 6 product teams, reduced MTTD by 50%, and removed hard-coded credentials from
+          100% of deployed repositories. Currently deepening AI/ML infrastructure (AIOps/MLOps)
+          to serve and scale model workloads. Open to remote and contract roles.
+        </p>
+      </section>
+
+      <section class="skills">
+        <h2>Technical Skills</h2>
+        <p><span class="label">Cloud:</span> AWS (EKS, ECS/Fargate, EC2, S3, IAM, RDS, CloudWatch, CodePipeline); Microsoft Azure (AKS, VMs, App Services, Blob Storage, MSSQL); GCP</p>
+        <p><span class="label">Containers &amp; Orchestration:</span> Kubernetes, Amazon EKS, Azure AKS, Docker (multi-stage builds, ECR), Kustomize, Helm, Argo CD, Argo Rollouts</p>
+        <p><span class="label">IaC &amp; Configuration:</span> Terraform, Terragrunt, AWS CloudFormation, Ansible</p>
+        <p><span class="label">CI/CD &amp; Deployment:</span> GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, Azure DevOps Pipelines; Git, GitHub, GitLab, Bitbucket</p>
+        <p><span class="label">Observability:</span> Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, NewRelic</p>
+        <p><span class="label">Linux, Security &amp; Automation:</span> Linux (Ubuntu, Amazon Linux, RHEL), Bash and Python scripting; IAM least privilege, secrets management, container vulnerability scanning, patching, firewall rules, Cloudflare Tunnel, VPN</p>
+        <p><span class="label">AI/ML Infrastructure (in progress):</span> MLOps fundamentals, model serving, containerized GPU workloads</p>
+      </section>
+
+      <section>
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+          <div class="job-head">
+            <p class="job-title">DevOps Engineer <span class="org">· Pikessoft</span></p>
+            <p class="job-dates">Aug 2023 – Present</p>
+          </div>
+          <p class="job-loc">Lahore, Pakistan</p>
+          <ul>
+            <li>Provisioned and managed containerized workloads on AWS <b>EKS</b> and <b>ECS (Fargate)</b> and on Azure Kubernetes Service (<b>AKS</b>) with auto-scaling and rolling deployments.</li>
+            <li>Designed and maintained multi-environment <b>CI/CD</b> pipelines in <b>GitHub Actions</b>, <b>GitLab CI/CD</b> and Jenkins, cutting average deployment time from 90 minutes to under <b>15 minutes</b> across 6 product teams.</li>
+            <li>Managed AWS infrastructure with <b>Terraform</b>, enforcing consistent tagging, network segmentation and IAM least-privilege policies.</li>
+            <li>Built a centralized observability stack (<b>Prometheus + Grafana</b>) with alerts for CPU, memory, health and request latency, reducing mean time to detect by <b>50%</b>.</li>
+            <li>Standardized Docker image builds with multi-stage Dockerfiles, reducing final image sizes by <b>60%</b> and pushing to AWS ECR with automated vulnerability scanning at each pipeline stage.</li>
+            <li>Implemented secrets management and environment-specific config injection across pipelines, eliminating hard-coded credentials in <b>100%</b> of deployed repositories.</li>
+            <li>Cut a client's infrastructure cost from <b>GBP 9,000 to GBP 3,000 per month</b> by moving dev environments to on-premises servers and replacing purchased public IPs with <b>Cloudflare Tunnel</b> secured by VPN.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <p class="job-title">DevOps Engineer <span class="org">· Northbay Solutions</span></p>
+            <p class="job-dates">Oct 2022 – Apr 2023</p>
+          </div>
+          <p class="job-loc">Lahore, Pakistan</p>
+          <ul>
+            <li>Containerized monolithic applications with <b>Docker</b> for reproducible, environment-agnostic deployment on AWS EC2.</li>
+            <li>Configured AWS infrastructure (EC2 Auto Scaling groups, ALBs, RDS, S3), improving application availability to <b>99.5% uptime</b>.</li>
+            <li>Wrote <b>Bash</b> and <b>Python</b> automation for log rotation, backups, health checks and alerting, saving <b>8+ hours per week</b> of manual ops work.</li>
+            <li>Managed <b>Linux</b> servers (Ubuntu, Amazon Linux), including patching, user access controls and firewall rules.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <p class="job-title">Application Developer <span class="org">· DevSmith</span></p>
+            <p class="job-dates">Oct 2021 – Jul 2022</p>
+          </div>
+          <p class="job-loc">Lahore, Pakistan</p>
+          <ul>
+            <li>Built chat room and ticketing features for a Flutter-based application.</li>
+            <li>Built a Bitcoin wallet application and a WhatsApp media backup application.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="page-break">
+        <h2>Open Source Projects</h2>
+
+        <div class="project">
+          <h3>EKS Platform: Terragrunt + Kustomize + Argo CD + Jenkins
+            <a href="https://github.com/Kamrank47/eks-jenkins-argocd-deployment">github.com/Kamrank47/eks-jenkins-argocd-deployment</a>
+          </h3>
+          <p>
+            Multi-environment EKS platform provisioned with Terragrunt-orchestrated Terraform
+            modules across dev and prod, with encrypted S3 remote state and DynamoDB locking.
+            KMS envelope encryption for secrets, IMDSv2 enforced through a launch template, and
+            the EKS public endpoint restricted to an allow-listed CIDR. Jenkins builds and scans
+            images and updates Kustomize overlays; Argo CD syncs; Argo Rollouts runs blue-green
+            cutovers gated by a pre-promotion smoke test.
+          </p>
+          <p class="tech">Terraform, Terragrunt, EKS, Kustomize, Argo CD, Argo Rollouts, Jenkins, Helm</p>
+        </div>
+
+        <div class="project">
+          <h3>EC2 Terraform Deployment
+            <a href="https://github.com/Kamrank47/ec2-terraform-deployment">github.com/Kamrank47/ec2-terraform-deployment</a>
+          </h3>
+          <p>
+            Cost-optimized EC2 platform with Auto Scaling and ALB, CodeDeploy blue/green
+            releases, and artifacts staged in S3. GitHub Actions authenticates to AWS through
+            <b>OIDC</b> with no long-lived keys. Self-hosted Prometheus, Loki and Grafana scrape the
+            fleet over security-group-scoped ports. SQS queues with per-queue dead-letter queues
+            feed Lambda consumers for transactions, notifications and event ingestion.
+          </p>
+          <p class="tech">Terraform, EC2, CodeDeploy, GitHub OIDC, SQS, Lambda, Prometheus, Loki, Grafana</p>
+        </div>
+
+        <div class="project">
+          <h3>ECS Terragrunt Deployment
+            <a href="https://github.com/Kamrank47/ecs-terragrunt-deployment">github.com/Kamrank47/ecs-terragrunt-deployment</a>
+          </h3>
+          <p>
+            ECS Fargate service behind an Application Load Balancer with CPU and memory
+            autoscaling, optional ACM TLS and path-based API routing. Reusable Terraform modules
+            orchestrated with Terragrunt across dev and prod, with a VPC across two availability
+            zones and security groups scoped per tier. Self-managed PostgreSQL and Redis data
+            tier, with CodePipeline and CodeBuild delivery reporting into Slack.
+          </p>
+          <p class="tech">Terraform, Terragrunt, ECS Fargate, ALB, ECR, CodePipeline, SSM, PostgreSQL, Redis</p>
+        </div>
+
+        <div class="project">
+          <h3>GitLab CI/CD Pipelines: .NET on IIS + Angular on Cloudflare Pages
+            <a href="https://github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines">github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines</a>
+          </h3>
+          <p>
+            Two production pipelines on self-hosted GitLab runners covering a five-environment
+            branching model. The .NET pipeline stops the app pool, serves an offline page, backs
+            up the previous release, copies the new build and polls Swagger until healthy. The
+            Angular pipeline injects environment config, runs a SonarQube gate on merge requests
+            and deploys to Cloudflare Pages with Wrangler. Production deploys require a manual
+            trigger.
+          </p>
+          <p class="tech">GitLab CI/CD, .NET, IIS, PowerShell, Angular, Cloudflare Pages, SonarQube</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu-line">
+          <p><b>B.S. Computer Science</b> · Lahore Garrison University, Lahore, Pakistan</p>
+          <p class="dates">2021</p>
+        </div>
+        <p class="muted">Coursework: Operating Systems, Computer Networks, Distributed Systems, Cloud Computing</p>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <p class="pub"><b>AWS Solutions Architect</b> · Pasha</p>
+      </section>
+
+      <section>
+        <h2>Publications</h2>
+        <p class="pub">Technical articles on Medium: <b>medium.com/@kamranali.k47</b></p>
+      </section>
+    </div>
+  </body>
+</html>

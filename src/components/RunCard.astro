@@ -1,0 +1,44 @@
+---
+import { run } from "../data/profile";
+---
+
+<figure class="run reveal" aria-labelledby="run-caption">
+  <div class="run__bar">
+    <span class="run__id">{run.id}</span>
+    <span class="run__state">
+      <span aria-hidden="true">✓</span> {run.state}
+    </span>
+  </div>
+
+  <ol class="run__stages">
+    {run.stages.map((stage, index) => (
+      <li class="stage">
+        <span class="stage__status" aria-hidden="true">✓</span>
+        <span class="stage__body">
+          <span class="stage__name">{stage.name}</span>
+          <span class="stage__track">
+            <span
+              class="stage__fill"
+              style={`--w:${stage.width}%;--delay:${120 + index * 110}ms`}
+            ></span>
+          </span>
+        </span>
+        <span class="stage__time">{stage.time}</span>
+      </li>
+    ))}
+  </ol>
+
+  <div class="run__summary">
+    <span>
+      <span class="run__total">{run.total}</span>
+      <span class="sr-only">total deployment time</span>
+    </span>
+    <span class="run__delta">
+      was <s>{run.previous}</s> · {run.delta}
+    </span>
+  </div>
+
+  <figcaption class="run__note" id="run-caption">
+    {run.target}. <strong>{run.note}</strong>
+  </figcaption>
+</figure>

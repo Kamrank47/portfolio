@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kamran Hashmi · CV (modern)</title>
+    <meta name="author" content="Kamran Hashmi" />
+    <style>
+      @font-face {
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+        src: url("../node_modules/@fontsource-variable/archivo/files/archivo-latin-wght-normal.woff2")
+          format("woff2-variations");
+      }
+
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-style: normal;
+        font-weight: 100 800;
+        font-display: block;
+        src: url("../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2")
+          format("woff2-variations");
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      body {
+        font-family: "Archivo", Arial, sans-serif;
+        font-size: 9.1pt;
+        line-height: 1.42;
+        color: #16211c;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        background: #fff;
+      }
+
+      a {
+        color: #0b2a22;
+        text-decoration: none;
+      }
+
+      .masthead {
+        background: #0b2a22;
+        color: #f1f4ea;
+        padding: 10mm 14mm 7mm;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .masthead::after {
+        content: "";
+        position: absolute;
+        right: -44mm;
+        top: -58mm;
+        width: 120mm;
+        height: 120mm;
+        border: 1.6pt solid rgba(201, 242, 77, 0.22);
+        border-radius: 50%;
+      }
+
+      .masthead__top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10mm;
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 26pt;
+        font-weight: 800;
+        line-height: 0.94;
+        letter-spacing: -0.045em;
+        text-transform: none;
+      }
+
+      .role {
+        margin: 2.2mm 0 0;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 8.4pt;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #c9f24d;
+      }
+
+      .badge {
+        display: inline-block;
+        margin-top: 3mm;
+        padding: 1.2mm 2.6mm;
+        border: 0.6pt solid rgba(241, 244, 234, 0.34);
+        border-radius: 10mm;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.2pt;
+        letter-spacing: 0.04em;
+        color: #dfe7d8;
+        white-space: nowrap;
+      }
+
+      .contact {
+        margin: 4.4mm 0 0;
+        padding-top: 3mm;
+        border-top: 0.6pt solid rgba(241, 244, 234, 0.22);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1mm 4.5mm;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.6pt;
+        color: #cbd6c9;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact span::before {
+        content: "";
+        display: inline-block;
+        width: 1.6mm;
+        height: 1.6mm;
+        margin-right: 1.6mm;
+        border-radius: 50%;
+        background: #c9f24d;
+        vertical-align: 0.2mm;
+        opacity: 0.7;
+      }
+
+      .impact {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-bottom: 1pt solid #0b2a22;
+      }
+
+      .impact div {
+        padding: 3mm 4mm 3mm 5mm;
+        border-right: 0.6pt solid #d8dbcf;
+      }
+
+      .impact div:last-child {
+        border-right: 0;
+      }
+
+      .impact strong {
+        display: block;
+        font-size: 15pt;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        color: #0b2a22;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .impact strong em {
+        font-style: normal;
+        font-size: 0.58em;
+        color: #5f6c65;
+        letter-spacing: -0.01em;
+      }
+
+      .impact span {
+        display: block;
+        margin-top: 1.6mm;
+        font-size: 7.4pt;
+        line-height: 1.32;
+        color: #5f6c65;
+      }
+
+      .body {
+        padding: 5mm 14mm 10mm;
+      }
+
+      h2 {
+        margin: 0 0 2.6mm;
+        padding-bottom: 1.2mm;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.6pt;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #5f6c65;
+        border-bottom: 0.6pt solid #cfd4c6;
+      }
+
+      .summary {
+        font-size: 9.1pt;
+        line-height: 1.4;
+        color: #2c3a33;
+        max-width: 172mm;
+      }
+
+      b,
+      strong {
+        font-weight: 650;
+        color: #0b2a22;
+      }
+
+      .job {
+        margin-top: 2.6mm;
+        break-inside: avoid;
+      }
+
+      .job:first-of-type {
+        margin-top: 0;
+      }
+
+      .job__head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 6mm;
+      }
+
+      .job__org {
+        font-size: 10.6pt;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #0b2a22;
+      }
+
+      .job__org small {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.2pt;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #6d7a70;
+        margin-left: 2.4mm;
+      }
+
+      .job__dates {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.4pt;
+        letter-spacing: 0.03em;
+        color: #5f6c65;
+        white-space: nowrap;
+      }
+
+      .job__role {
+        margin: 0.6mm 0 1.2mm;
+        font-size: 8.6pt;
+        font-weight: 500;
+        color: #3f4f46;
+      }
+
+      .job ul {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.7mm;
+      }
+
+      .job li {
+        position: relative;
+        padding-left: 3.6mm;
+        font-size: 8.5pt;
+        line-height: 1.38;
+        color: #33423a;
+        list-style: none;
+      }
+
+      .job li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 1.55mm;
+        width: 1.8mm;
+        height: 0.6pt;
+        background: #0b2a22;
+      }
+
+      .stackline {
+        margin-top: 1.6mm;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.1pt;
+        letter-spacing: 0.01em;
+        color: #5f6c65;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.4mm 6mm;
+      }
+
+      .project {
+        padding-top: 2mm;
+        border-top: 0.6pt solid #d8dbcf;
+        break-inside: avoid;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-size: 8.9pt;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: #0b2a22;
+      }
+
+      .project p {
+        margin: 0.9mm 0 0;
+        font-size: 7.9pt;
+        line-height: 1.4;
+        color: #45544b;
+      }
+
+      .project .stackline {
+        margin-top: 1.1mm;
+        font-size: 6.9pt;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 6mm;
+      }
+
+      .skill {
+        display: grid;
+        grid-template-columns: 26mm 1fr;
+        gap: 2mm;
+        padding: 1.7mm 0;
+        border-bottom: 0.6pt solid #e2e5da;
+        font-size: 7.9pt;
+        line-height: 1.4;
+      }
+
+      .skill dt {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 6.8pt;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #6d7a70;
+        padding-top: 0.3mm;
+      }
+
+      .skill dd {
+        margin: 0;
+        color: #33423a;
+      }
+
+      .foot {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6mm;
+      }
+
+      .foot h2 {
+        margin-bottom: 1.8mm;
+      }
+
+      .foot p {
+        font-size: 8.3pt;
+        line-height: 1.45;
+        color: #33423a;
+      }
+
+      .foot .meta {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.3pt;
+        color: #6d7a70;
+        margin-top: 0.8mm;
+      }
+
+      .page-break {
+        break-before: page;
+        padding-top: 14mm;
+      }
+
+      .running-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 6mm;
+        padding-bottom: 2mm;
+        margin-bottom: 5mm;
+        border-bottom: 1pt solid #0b2a22;
+      }
+
+      .running-head b {
+        font-size: 8.2pt;
+        font-weight: 700;
+        color: #0b2a22;
+        letter-spacing: -0.01em;
+      }
+
+      .running-head span {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 6.9pt;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6d7a70;
+      }
+
+      section {
+        margin-bottom: 4.6mm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <header class="masthead">
+        <div class="masthead__top">
+          <div>
+            <h1>Kamran Hashmi</h1>
+            <p class="role">DevOps Engineer · AI/ML Infrastructure</p>
+            <p class="badge">Open to remote and contract roles</p>
+          </div>
+        </div>
+        <div class="contact">
+          <span>Lahore, Pakistan · PKT (UTC+5)</span>
+          <span>+92-303-4145584</span>
+          <span>kamranali.k47@gmail.com</span>
+          <span>linkedin.com/in/kamhash</span>
+          <span>github.com/Kamrank47</span>
+          <span>medium.com/@kamranali.k47</span>
+        </div>
+      </header>
+
+      <div class="impact">
+        <div>
+          <strong>90 <em>→</em> 14 <em>min</em></strong>
+          <span>Deployment time across 6 product teams</span>
+        </div>
+        <div>
+          <strong>−50<em>%</em></strong>
+          <span>Mean time to detect after centralized alerting</span>
+        </div>
+        <div>
+          <strong>100<em>%</em></strong>
+          <span>Repositories with hard-coded credentials removed</span>
+        </div>
+        <div>
+          <strong>£9k <em>→</em> £3k</strong>
+          <span>Monthly client infrastructure spend</span>
+        </div>
+      </div>
+
+      <div class="body">
+        <section>
+          <p class="summary">
+            DevOps engineer with 5 years in software and 4 on the platform layer: <b>Kubernetes</b>
+            on EKS and AKS, <b>Terraform</b> and Terragrunt, CI/CD in GitHub Actions and GitLab, and
+            Prometheus/Grafana observability. I take the slow, manual, fragile part of shipping
+            software and remove it. Currently deepening AI/ML infrastructure so model workloads get
+            the same delivery discipline as application workloads.
+          </p>
+        </section>
+
+        <section>
+          <h2>Experience</h2>
+
+          <div class="job">
+            <div class="job__head">
+              <p class="job__org">Pikessoft <small>Lahore, Pakistan</small></p>
+              <p class="job__dates">Aug 2023 – Present</p>
+            </div>
+            <p class="job__role">DevOps Engineer</p>
+            <ul>
+              <li>Run containerized workloads on AWS <b>EKS</b>, <b>ECS Fargate</b> and Azure <b>AKS</b> with autoscaling and rolling deployments.</li>
+              <li>Rebuilt multi-environment pipelines in <b>GitHub Actions</b>, <b>GitLab CI/CD</b> and <b>Jenkins</b>, cutting average deployment time from <b>90 minutes to under 15</b> across 6 product teams.</li>
+              <li>Manage AWS infrastructure with <b>Terraform</b>: consistent tagging, network segmentation, IAM least privilege.</li>
+              <li>Built <b>Prometheus + Grafana</b> monitoring with alerting on CPU, memory, health and latency, cutting mean time to detect by <b>50%</b>.</li>
+              <li>Standardized multi-stage Docker builds for <b>60% smaller images</b>, pushed to ECR with vulnerability scanning at every stage.</li>
+              <li>Removed hard-coded credentials from <b>100% of deployed repositories</b> with secrets management and per-environment config injection.</li>
+              <li>Cut a client's infrastructure cost from <b>GBP 9,000 to GBP 3,000 per month</b> by moving dev environments on-premises and replacing public IPs with Cloudflare Tunnel behind a VPN.</li>
+            </ul>
+            <p class="stackline">EKS · AKS · Terraform · GitHub Actions · GitLab CI · Jenkins · Prometheus · Grafana · ECR · Cloudflare</p>
+          </div>
+
+          <div class="job">
+            <div class="job__head">
+              <p class="job__org">Northbay Solutions <small>Lahore, Pakistan</small></p>
+              <p class="job__dates">Oct 2022 – Apr 2023</p>
+            </div>
+            <p class="job__role">DevOps Engineer</p>
+            <ul>
+              <li>Containerized monolithic applications with <b>Docker</b> for reproducible deployment on AWS EC2.</li>
+              <li>Configured EC2 Auto Scaling groups, ALBs, RDS and S3, raising availability to <b>99.5% uptime</b>.</li>
+              <li>Wrote <b>Bash</b> and <b>Python</b> automation for log rotation, backups, health checks and alerting, returning <b>8+ hours per week</b>.</li>
+              <li>Managed Ubuntu and Amazon Linux servers: patching, access control and firewall rules.</li>
+            </ul>
+            <p class="stackline">Docker · EC2 · Auto Scaling · ALB · RDS · S3 · Bash · Python · Linux</p>
+          </div>
+
+          <div class="job">
+            <div class="job__head">
+              <p class="job__org">DevSmith <small>Lahore, Pakistan</small></p>
+              <p class="job__dates">Oct 2021 – Jul 2022</p>
+            </div>
+            <p class="job__role">Application Developer</p>
+            <ul>
+              <li>Built chat room and ticketing features for a Flutter application.</li>
+              <li>Built a Bitcoin wallet application and a WhatsApp media backup application.</li>
+            </ul>
+            <p class="stackline">Flutter · Application development</p>
+          </div>
+        </section>
+
+        <section class="page-break">
+          <div class="running-head">
+            <b>Kamran Hashmi · DevOps Engineer</b>
+            <span>Selected work · skills · education</span>
+          </div>
+          <h2>Selected open source</h2>
+          <div class="projects">
+            <div class="project">
+              <h3>EKS platform</h3>
+              <p>Multi-environment EKS with Terragrunt modules, KMS-encrypted secrets, IMDSv2, Kustomize overlays and Argo CD GitOps. Jenkins builds and scans; Argo Rollouts runs blue-green cutovers gated by a smoke test.</p>
+              <p class="stackline">Terraform · Terragrunt · EKS · Argo CD · Argo Rollouts · Jenkins</p>
+            </div>
+            <div class="project">
+              <h3>EC2 deployment platform</h3>
+              <p>Cost-optimized EC2 with Auto Scaling, CodeDeploy blue/green releases, keyless GitHub OIDC, SQS and Lambda consumers, and self-hosted Prometheus, Loki and Grafana.</p>
+              <p class="stackline">Terraform · EC2 · CodeDeploy · OIDC · SQS · Lambda · Grafana</p>
+            </div>
+            <div class="project">
+              <h3>ECS Terragrunt platform</h3>
+              <p>ECS Fargate behind an ALB with autoscaling, ACM TLS, per-tier security groups, a self-managed PostgreSQL and Redis tier, and CodePipeline delivery with Slack notifications.</p>
+              <p class="stackline">Terraform · Terragrunt · ECS Fargate · ALB · CodePipeline</p>
+            </div>
+            <div class="project">
+              <h3>GitLab CI/CD pipelines</h3>
+              <p>.NET on Windows/IIS with backup-and-smoke-test releases, and Angular on Cloudflare Pages with a SonarQube merge-request gate. Five environments, manual production triggers.</p>
+              <p class="stackline">GitLab CI/CD · .NET · IIS · Angular · Cloudflare Pages</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Technical skills</h2>
+          <dl class="skills">
+            <div class="skill">
+              <dt>Cloud</dt>
+              <dd>AWS (EKS, ECS/Fargate, EC2, S3, IAM, RDS, CloudWatch, CodePipeline), Azure (AKS, VMs, App Services, Blob Storage, MSSQL), GCP</dd>
+            </div>
+            <div class="skill">
+              <dt>Containers</dt>
+              <dd>Kubernetes, EKS, AKS, Docker multi-stage builds, ECR, Kustomize, Helm, Argo CD, Argo Rollouts</dd>
+            </div>
+            <div class="skill">
+              <dt>IaC</dt>
+              <dd>Terraform, Terragrunt, CloudFormation, Ansible</dd>
+            </div>
+            <div class="skill">
+              <dt>CI/CD</dt>
+              <dd>GitHub Actions, GitLab CI/CD, Jenkins, CodePipeline, Azure DevOps Pipelines, Git</dd>
+            </div>
+            <div class="skill">
+              <dt>Observability</dt>
+              <dd>Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, New Relic</dd>
+            </div>
+            <div class="skill">
+              <dt>Linux &amp; security</dt>
+              <dd>Ubuntu, Amazon Linux, RHEL, Bash, Python, IAM least privilege, secrets management, image scanning, patching, firewall rules, Cloudflare Tunnel, VPN</dd>
+            </div>
+            <div class="skill">
+              <dt>AI/ML infra</dt>
+              <dd>MLOps fundamentals, model serving, containerized GPU workloads (current study)</dd>
+            </div>
+          </dl>
+        </section>
+
+        <div class="foot">
+          <div>
+            <h2>Education</h2>
+            <p><strong>B.S. Computer Science</strong><br />Lahore Garrison University, Lahore</p>
+            <p class="meta">2021 · OS, Networks, Distributed Systems, Cloud Computing</p>
+          </div>
+          <div>
+            <h2>Certification</h2>
+            <p><strong>AWS Solutions Architect</strong><br />Pasha</p>
+            <p class="meta">Solutions architecture across compute, networking, storage and IAM</p>
+          </div>
+          <div>
+            <h2>Writing</h2>
+            <p>Technical notes published on Medium, including exposing on-prem servers without a public IP and managing multiple Git identities.</p>
+            <p class="meta">medium.com/@kamranali.k47</p>
+          </div>
+          <div>
+            <h2>Contact</h2>
+            <p>kamranali.k47@gmail.com<br />+92-303-4145584</p>
+            <p class="meta">github.com/Kamrank47 · linkedin.com/in/kamhash</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
