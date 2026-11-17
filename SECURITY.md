@@ -24,7 +24,7 @@ Out of scope:
 ## Posture
 
 - Static site, no server-side code, no forms, no cookies
-- Cloudflare Web Analytics only: one edge-injected script with SRI, allowed by exact URL in `script-src`, reporting to the same origin
+- Cloudflare Web Analytics only: one edge-injected script with SRI, allowed by exact URL in `script-src`, reporting to `cloudflareinsights.com`
 - Strict Content-Security-Policy with no `unsafe-inline` for scripts or styles
 - HSTS, frame denial, nosniff, referrer and permissions policies set in `public/_headers`
 - Dependencies and GitHub Actions audited weekly by Dependabot

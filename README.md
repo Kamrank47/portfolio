@@ -114,8 +114,9 @@ Report a vulnerability to kamranali.k47@gmail.com.
 
 The Pages project has Cloudflare Web Analytics enabled, so the edge injects
 `static.cloudflareinsights.com/beacon.min.js` into HTML. The CSP allows exactly
-that script URL and nothing else from the host. Beacons post to the same origin
-at `/cdn-cgi/rum`, which `connect-src 'self'` covers. To remove the third-party
+that script URL and nothing else from the host. Beacons post to
+`cloudflareinsights.com/cdn-cgi/rum`, which is the one host allowed in
+`connect-src` alongside `'self'`. To remove the third-party
 script entirely, disable Web Analytics under the Pages project's **Metrics** tab
 and drop the URL from `script-src`.
 
