@@ -1,0 +1,65 @@
+---
+import Base from "../../layouts/Base.astro";
+import runs from "../../../public/demo/copilot-runs.json";
+
+const title = (id: string) => id.replace(/-/g, " ");
+---
+
+<Base
+  title="AIOps copilot demo · Kamran Hashmi"
+  description="Five recorded runs of an LLM incident-triage service: the alert, the Prometheus and Loki context, the runbook, and the triage it posted."
+>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Recorded demo</p>
+      <h1 class="mt-16">What the AIOps copilot sends to Slack.</h1>
+      <p>
+        Five real runs of the service against synthetic fault scenarios. Each one shows
+        the alert, the context the service gathered, the matching runbook, and the
+        triage the model returned, with the model and latency measured on the day.
+        Nothing here comes from a client system.
+      </p>
+      <div class="hero__actions mt-24">
+        <a class="btn btn--primary" href="https://github.com/Kamrank47/aiops-incident-copilot" target="_blank" rel="noopener noreferrer">View source ↗</a>
+        <a class="btn btn--ghost" href="/#work">Back to projects</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap demo">
+    {runs.map((r, i) => (
+      <details class="demo__run" open={i === 0}>
+        <summary class="demo__summary">
+          <span class="mono demo__id">{r.id}</span>
+          <span class="demo__alert">{r.alert.labels.alertname} · {r.alert.labels.service}</span>
+          <span class={`demo__conf demo__conf--${r.triage.confidence}`}>{r.triage.confidence} confidence</span>
+          <span class="mono demo__lat">{r.latency_s}s</span>
+        </summary>
+        <div class="demo__body">
+          <div class="demo__col">
+            <p class="demo__label">1 · Alert</p>
+            <p>{r.alert.annotations.summary}</p>
+            <p class="demo__label">2 · Context gathered</p>
+            <ul class="demo__list mono">
+              {Object.entries(r.context.metrics).map(([k, v]) => <li>{k} = {v}</li>)}
+              {r.context.log_lines.map((l) => <li>log: {l}</li>)}
+              {r.context.recent_deploys.map((d) => <li>deploy: {d}</li>)}
+            </ul>
+            <p class="demo__label">3 · Runbook</p>
+            <pre class="demo__pre mono">{r.runbook}</pre>
+          </div>
+          <div class="demo__col demo__col--out">
+            <p class="demo__label">4 · Triage posted to Slack</p>
+            <p><strong>{r.triage.summary}</strong></p>
+            <p><span class="demo__label">Likely cause</span><br />{r.triage.likely_cause}</p>
+            <p class="demo__label">Next steps (read-only first)</p>
+            <ol class="demo__steps">
+              {r.triage.next_steps.map((s) => <li>{s}</li>)}
+            </ol>
+            <p class="demo__meta mono">{r.model} · {r.latency_s}s · source: {r.triage.source}</p>
+          </div>
+        </div>
+      </details>
+    ))}
+  </div>
+</Base>

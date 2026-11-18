@@ -120,6 +120,7 @@ export const projects = [
       "Slack",
     ],
     repo: "https://github.com/Kamrank47/aiops-incident-copilot",
+    demo: "/demo/copilot",
   },
   {
     num: "02",
@@ -521,42 +522,42 @@ export const continuingEducation = [
 ];
 
 
-// Replace every "TODO:" sentence with your real story before publishing.
+// Written without client names. Numbers are the ones on the resume.
 export const caseStudies = [
   {
     metric: "90 → 14 min deploys",
     title: "Rebuilding delivery for six product teams",
     problem:
-      "Each team shipped through its own hand-rolled pipeline and a release took about 90 minutes. TODO: describe what made it slow and what it cost the teams.",
+      "Six product teams each shipped through their own hand-rolled pipeline. A release averaged about 90 minutes, and every team had its own quirks, so a fix to one pipeline helped nobody else.",
     approach:
-      "One pipeline shape for every team: GitHub Actions to ECR, Argo CD to EKS, Argo Rollouts for the cutover. TODO: how you rolled it out team by team.",
+      "One pipeline shape for every team: GitHub Actions builds and scans the image, pushes to ECR, Argo CD syncs to EKS and Argo Rollouts handles the cutover. Teams moved over one at a time, with GitLab CI/CD and Jenkins variants where a team's tooling required them.",
     tradeoffs:
-      "TODO: what you gave up, for example flexibility per team, migration effort, or extra platform ownership.",
+      "Teams gave up some per-team freedom in exchange for a shared, supported path. The platform side took on ownership of the pipeline templates and the migration effort.",
     result:
-      "90 minutes down to 14 minutes on average. TODO: add the effect on release frequency or failed deploys.",
+      "Average deployment time fell from about 90 minutes to under 15 across all six teams, using the same pipeline shape everywhere.",
   },
   {
     metric: "GBP 9k → 3k per month",
     title: "Cutting a client's cloud bill by two thirds",
     problem:
-      "TODO: what was driving the GBP 9,000 monthly spend (idle dev environments, purchased public IPs).",
+      "A client's monthly infrastructure bill was GBP 9,000. Dev environments and purchased public IPs were a large part of that cost, and the environments were not needed around the clock.",
     approach:
-      "Moved dev environments on-premises and replaced public IPs with Cloudflare Tunnel behind a VPN. TODO: how you migrated without downtime.",
+      "Dev environments moved on-premises. Cloudflare Tunnel behind a VPN replaced the purchased public IPs, so services stayed reachable without exposing them directly.",
     tradeoffs:
-      "TODO: on-prem maintenance, VPN access model, and why production stayed in the cloud.",
+      "On-prem dev means the team owns the hardware and the access model. Production stayed in the cloud, where availability and scaling matter more than cost.",
     result:
-      "Monthly spend from GBP 9,000 to GBP 3,000 with every dev environment kept.",
+      "Monthly spend dropped from GBP 9,000 to GBP 3,000, with every dev environment kept.",
   },
   {
     metric: "−50% time to detect",
     title: "Centralized alerting that finds problems first",
     problem:
-      "TODO: how incidents were discovered before (customers, ad-hoc checks).",
+      "Problems were found by people noticing them, not by monitoring. Detection depended on someone checking a service or a user reporting it.",
     approach:
-      "Prometheus and Grafana with alerts on CPU, memory, health and request latency. TODO: how you chose thresholds and routed alerts.",
+      "A Prometheus and Grafana stack with alerts on CPU, memory, health checks and request latency, centralized so every service reported to one place.",
     tradeoffs:
-      "TODO: alert noise, on-call load, and what you chose not to alert on.",
+      "More alerts mean more noise if thresholds are loose. The focus stayed on symptoms users feel, such as health and latency, rather than every resource metric.",
     result:
-      "Mean time to detect cut by 50%. TODO: add a real incident where it paid off.",
+      "Mean time to detect fell by 50% after alerting was centralized.",
   },
 ] as const;

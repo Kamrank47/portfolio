@@ -1,0 +1,200 @@
+[
+  {
+    "id": "deploy-regression",
+    "alert": {
+      "labels": {
+        "alertname": "HighErrorRate",
+        "service": "checkout"
+      },
+      "annotations": {
+        "summary": "5xx rate above 0.5/s"
+      }
+    },
+    "context": {
+      "metrics": {
+        "error_rate_5m": "3.2",
+        "p95_latency_s": "0.4",
+        "restarts_1h": "0"
+      },
+      "log_lines": [
+        "NullPointerException in PaymentMapper.map after release v2.14.0"
+      ],
+      "recent_deploys": [
+        "checkout v2.14.0 deployed 6 minutes ago"
+      ]
+    },
+    "runbook": "# HighErrorRate\n\n1. Check whether errors started right after a deploy; if so, roll back first.\n2. Look at dependency errors in logs (database, queue, upstream timeouts).\n3. Check saturation: CPU throttling, memory near limit, connection pool exhaustion.\n4. If one pod is the source, cordon and restart it; otherwise scale out.\n",
+    "triage": {
+      "summary": "5xx error rate spiked to 3.2/5m after checkout v2.14.0 deployment; logs show NullPointerException in PaymentMapper.map.",
+      "likely_cause": "Bug introduced in checkout v2.14.0 (PaymentMapper) causing NPEs, leading to high 5xx rate.",
+      "confidence": "high",
+      "next_steps": [
+        "Confirm error timestamps align with the v2.14.0 rollout using the monitoring system",
+        "Inspect logs of all checkout pods for the same NPE to see if it\u2019s widespread",
+        "Check the rollout status (pods ready vs. total) to ensure the new version is fully deployed",
+        "Review the diff of v2.14.0, focusing on PaymentMapper changes",
+        "If the NPE is confirmed across pods, prepare to roll back to the previous version per runbook"
+      ],
+      "source": "llm"
+    },
+    "latency_s": 1.2,
+    "model": "openai/gpt-oss-120b"
+  },
+  {
+    "id": "memory-leak-oom",
+    "alert": {
+      "labels": {
+        "alertname": "PodCrashLooping",
+        "service": "orders"
+      },
+      "annotations": {
+        "summary": "Container restarting repeatedly"
+      }
+    },
+    "context": {
+      "metrics": {
+        "memory_bytes": "536870000",
+        "restarts_1h": "7"
+      },
+      "log_lines": [
+        "Last state: OOMKilled, exit code 137"
+      ],
+      "recent_deploys": []
+    },
+    "runbook": "# PodCrashLooping\n\n1. `kubectl describe pod` and look at the last state: OOMKilled, Error, or probe failure.\n2. OOMKilled: compare memory to the limit and look for a leak or a limit set too low.\n3. Probe failure: check startup time against the probe's initial delay.\n4. Error exit: read the previous container's logs (`kubectl logs --previous`).\n",
+    "triage": {
+      "summary": "Pod in orders service is repeatedly restarting due to OOM kills",
+      "likely_cause": "Container exceeds its memory limit (OOMKilled) causing crash loop",
+      "confidence": "high",
+      "next_steps": [
+        "Run `kubectl describe pod <pod-name> -n <namespace>` to confirm memory limit and current usage",
+        "Run `kubectl logs <pod-name> --previous -n <namespace>` to view logs before the OOM kill",
+        "Check the pod spec (`kubectl get pod <pod-name> -o yaml`) for the memory request/limit values",
+        "Compare the observed memory usage (\u2248512\u202fMiB) with the configured limit to see if it is too low",
+        "If a memory leak is suspected, monitor the process memory over time with `kubectl top pod` or a metrics dashboard"
+      ],
+      "source": "llm"
+    },
+    "latency_s": 1.0,
+    "model": "openai/gpt-oss-120b"
+  },
+  {
+    "id": "db-connection-exhaustion",
+    "alert": {
+      "labels": {
+        "alertname": "HighLatencyP95",
+        "service": "catalog"
+      },
+      "annotations": {
+        "summary": "p95 latency above 1s"
+      }
+    },
+    "context": {
+      "metrics": {
+        "p95_latency_s": "4.8",
+        "error_rate_5m": "0.1"
+      },
+      "log_lines": [
+        "timeout acquiring connection from pool (max=20)",
+        "timeout acquiring connection from pool (max=20)"
+      ],
+      "recent_deploys": []
+    },
+    "runbook": "",
+    "triage": {
+      "summary": "P95 latency for catalog service is 4.8\u202fs (threshold 1\u202fs) with a modest error rate and repeated pool\u2011timeout logs.",
+      "likely_cause": "Connection pool exhaustion causing request timeouts, leading to high latency.",
+      "confidence": "medium",
+      "next_steps": [
+        "View current DB connection pool metrics (active, idle, waiting) via the monitoring dashboard",
+        "Check recent traffic spikes for the catalog service in the last 15\u202fmin",
+        "Inspect the pool configuration (max connections) and compare to observed usage",
+        "Verify that no recent code changes altered pool usage (recent_deploys is empty)",
+        "Review database server health (CPU, I/O, connection limits) without modifying anything"
+      ],
+      "source": "llm"
+    },
+    "latency_s": 1.1,
+    "model": "openai/gpt-oss-120b"
+  },
+  {
+    "id": "upstream-dependency",
+    "alert": {
+      "labels": {
+        "alertname": "HighErrorRate",
+        "service": "gateway"
+      },
+      "annotations": {
+        "summary": "5xx rate above 0.5/s"
+      }
+    },
+    "context": {
+      "metrics": {
+        "error_rate_5m": "1.9",
+        "restarts_1h": "0"
+      },
+      "log_lines": [
+        "upstream auth-service: connect timeout after 5s",
+        "502 from auth-service"
+      ],
+      "recent_deploys": []
+    },
+    "runbook": "# HighErrorRate\n\n1. Check whether errors started right after a deploy; if so, roll back first.\n2. Look at dependency errors in logs (database, queue, upstream timeouts).\n3. Check saturation: CPU throttling, memory near limit, connection pool exhaustion.\n4. If one pod is the source, cordon and restart it; otherwise scale out.\n",
+    "triage": {
+      "summary": "5xx error rate elevated to 1.9/5m, logs show auth-service timeouts",
+      "likely_cause": "Upstream auth-service connectivity problems causing gateway 5xx responses",
+      "confidence": "medium",
+      "next_steps": [
+        "Inspect auth-service health endpoint and latency metrics",
+        "Check recent network or DNS changes affecting auth-service",
+        "Review auth-service pod logs for errors or restarts",
+        "Verify gateway connection pool usage and timeout settings",
+        "Confirm no recent deploys for gateway or auth-service"
+      ],
+      "source": "llm"
+    },
+    "latency_s": 0.9,
+    "model": "openai/gpt-oss-120b"
+  },
+  {
+    "id": "probe-misconfig",
+    "alert": {
+      "labels": {
+        "alertname": "PodCrashLooping",
+        "service": "reports"
+      },
+      "annotations": {
+        "summary": "Container restarting repeatedly"
+      }
+    },
+    "context": {
+      "metrics": {
+        "restarts_1h": "9",
+        "memory_bytes": "120000000"
+      },
+      "log_lines": [
+        "Liveness probe failed: HTTP probe failed with statuscode: 503",
+        "app started in 48s"
+      ],
+      "recent_deploys": [
+        "reports config change 20 minutes ago"
+      ]
+    },
+    "runbook": "# PodCrashLooping\n\n1. `kubectl describe pod` and look at the last state: OOMKilled, Error, or probe failure.\n2. OOMKilled: compare memory to the limit and look for a leak or a limit set too low.\n3. Probe failure: check startup time against the probe's initial delay.\n4. Error exit: read the previous container's logs (`kubectl logs --previous`).\n",
+    "triage": {
+      "summary": "Pod reports service is in CrashLoopBackOff with 9 restarts in the last hour and liveness probe returning 503.",
+      "likely_cause": "Liveness probe failure, likely due to the recent config change causing the service to return HTTP 503 during startup.",
+      "confidence": "medium",
+      "next_steps": [
+        "Run `kubectl describe pod <pod>` to view events and last state details.",
+        "Inspect the pod's current and previous logs with `kubectl logs <pod>` and `kubectl logs --previous <pod>` for error messages.",
+        "Check the liveness probe configuration (initialDelaySeconds, periodSeconds, timeoutSeconds) and compare it to the app's startup time (48s).",
+        "Verify the memory usage (120\u202fMiB) against the pod's memory limits to rule out OOMKilled.",
+        "Review the recent config change for any endpoints or health\u2011check alterations that could cause a 503 response."
+      ],
+      "source": "llm"
+    },
+    "latency_s": 1.1,
+    "model": "openai/gpt-oss-120b"
+  }
+]
