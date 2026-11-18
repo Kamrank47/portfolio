@@ -244,42 +244,45 @@ export const projects = [
   },
   {
     num: "05",
-    kicker: "MLOps · model lifecycle",
-    title: "MLOps pipeline",
+    kicker: "MLOps · end-to-end delivery",
+    title: "Purchase-intent MLOps platform",
     claim:
-      "End-to-end ML lifecycle from data versioning to model serving, applying DevOps practices to machine learning workloads.",
+      "A model lifecycle that runs itself: validated training, an MLflow registry, served inference, GitOps delivery and drift monitoring.",
     facts: [
       {
-        key: "Data versioning",
+        key: "Training",
         value:
-          "DVC tracks datasets and model artifacts in S3, with Git-like semantics for reproducible training runs across the team.",
+          "Scikit-learn pipeline over 12,330 sessions with schema validation, a pinned dataset hash and a stratified split. ROC-AUC 0.927, best F1 0.666 at threshold 0.55.",
       },
       {
-        key: "Experiment tracking",
+        key: "Tracking",
         value:
-          "MLflow logs parameters, metrics and artifacts for every training run, with a central model registry for promotion from staging to production.",
+          "MLflow records parameters, metrics, signatures and artifacts, with registry promotion. Twenty-three tests and Ruff gate every commit.",
       },
       {
         key: "Serving",
         value:
-          "Containerized inference behind a Streamlit UI and a REST API, deployed on Kubernetes with health checks and rolling updates.",
+          "FastAPI with Pydantic validation, health and model-info endpoints, Prometheus metrics and a non-root container with a read-only filesystem.",
       },
       {
-        key: "CI/CD",
+        key: "Delivery",
         value:
-          "GitHub Actions pipeline retrains on data drift, runs validation, builds the container image and promotes through the model registry.",
+          "Kustomize overlays with HPA and PDB on Kubernetes, a KServe InferenceService alternative, Argo CD auto-sync and Trivy scanning in CI.",
       },
     ],
     stack: [
+      "Python",
+      "scikit-learn",
       "MLflow",
-      "DVC",
+      "FastAPI",
       "Docker",
       "Kubernetes",
+      "KServe",
+      "Argo CD",
       "GitHub Actions",
-      "Streamlit",
-      "Python",
+      "Prometheus",
     ],
-    repo: "https://github.com/Kamrank47/mlops-zero-to-hero",
+    repo: "https://github.com/Kamrank47/purchase-intent-mlops",
   },
 ];
 
