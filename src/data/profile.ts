@@ -41,7 +41,7 @@ export const run = {
   total: "14m 14s",
   previous: "91m 40s",
   delta: "84% faster",
-  note: "Six product teams, one pipeline shape: GitHub Actions to ECR, Argo CD to EKS, Argo Rollouts for the cutover.",
+  note: "Illustrative pipeline, not a live run. Six product teams, one pipeline shape: GitHub Actions to ECR, Argo CD to EKS, Argo Rollouts for the cutover.",
 };
 
 export const metrics = [
@@ -56,21 +56,21 @@ export const metrics = [
   {
     value: "−50",
     unit: "%",
-    trend: "2x faster",
-    trendLabel: "incident response",
+    trend: "Half the time",
+    trendLabel: "to detect incidents",
     label: "Mean time to detect after centralized alerting",
     src: "Pikessoft · Observability",
   },
   {
     value: "100",
     unit: "%",
-    trend: "Zero leaks",
-    trendLabel: "vault/secrets",
-    label: "Deployed repositories with hard-coded credentials removed",
+    trend: "All repos",
+    trendLabel: "secrets removed",
+    label: "Deployed repositories cleared of hard-coded credentials",
     src: "Pikessoft · DevSecOps",
   },
   {
-    value: "£9k → £3k",
+    value: "GBP 9k → 3k",
     unit: "/mo",
     trend: "−67%",
     trendLabel: "cloud cost cut",
@@ -82,6 +82,47 @@ export const metrics = [
 export const projects = [
   {
     num: "01",
+    kicker: "AIOps · LLM incident triage",
+    title: "AIOps incident copilot",
+    claim:
+      "Alertmanager fires, the service gathers metrics, logs and the matching runbook, and an LLM posts a short triage to Slack. Read-only by design.",
+    facts: [
+      {
+        key: "Context",
+        value:
+          "Pulls Prometheus and Loki context for the firing alert and attaches the matching runbook before asking the model.",
+      },
+      {
+        key: "Safety",
+        value:
+          "Secrets, emails, IPs and tokens are redacted before any text leaves the network. The service only suggests steps and never runs commands.",
+      },
+      {
+        key: "Reliability",
+        value:
+          "Gemini 2.5 Flash-Lite returns schema-enforced JSON. If the model fails or times out, the raw alert still reaches Slack, marked as a fallback.",
+      },
+      {
+        key: "Quality",
+        value:
+          "Five fault scenarios with known root causes for evaluation, unit tests, Ruff, a non-root read-only container and Trivy in CI.",
+      },
+    ],
+    stack: [
+      "Python",
+      "FastAPI",
+      "Gemini API",
+      "Prometheus",
+      "Loki",
+      "Alertmanager",
+      "Docker",
+      "Trivy",
+      "Slack",
+    ],
+    repo: "https://github.com/Kamrank47/aiops-incident-copilot",
+  },
+  {
+    num: "02",
     kicker: "Kubernetes platform · GitOps",
     title: "EKS platform",
     claim:
@@ -122,7 +163,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/eks-jenkins-argocd-deployment",
   },
   {
-    num: "02",
+    num: "03",
     kicker: "Cost-optimized compute · Blue/green",
     title: "EC2 deployment platform",
     claim:
@@ -163,7 +204,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/ec2-terraform-deployment",
   },
   {
-    num: "03",
+    num: "04",
     kicker: "ECS Fargate · Terragrunt modules",
     title: "ECS deployment platform",
     claim:
@@ -204,7 +245,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/ecs-terragrunt-deployment",
   },
   {
-    num: "04",
+    num: "05",
     kicker: ".NET on IIS · Angular on Cloudflare Pages",
     title: "GitLab CI/CD pipelines",
     claim:
@@ -243,7 +284,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines",
   },
   {
-    num: "05",
+    num: "06",
     kicker: "MLOps · end-to-end delivery",
     title: "Purchase-intent MLOps platform",
     claim:
@@ -302,11 +343,13 @@ export const stack = [
     tags: [
       "AWS (EKS, ECS, EC2)",
       "AWS Fargate",
-      "Azure (AKS, VMs)",
-      "Azure App Services",
-      "Google Cloud (GCP)",
       "AWS IAM & KMS",
       "Amazon S3 & RDS",
+      "Azure VMs & Blob Storage",
+      "Azure App Services & Functions",
+      "Azure Key Vault secrets",
+      "GCP VMs & Cloud Storage",
+      "GCP Secret Manager",
       "CloudWatch",
     ],
   },
@@ -317,6 +360,7 @@ export const stack = [
       "Kubernetes",
       "Amazon EKS",
       "Azure AKS",
+      "Google GKE",
       "Docker",
       "Argo CD",
       "Argo Rollouts",
@@ -331,7 +375,6 @@ export const stack = [
     tags: [
       "Terraform",
       "Terragrunt",
-      "AWS CloudFormation",
       "Ansible",
       "S3 State Backend",
       "DynamoDB Locking",
@@ -345,7 +388,7 @@ export const stack = [
       "GitLab CI/CD",
       "Jenkins",
       "AWS CodePipeline",
-      "Azure DevOps",
+      "Azure DevOps Pipelines",
       "Git & GitHub",
       "Blue/Green Deployments",
       "Automated Smoke Tests",
@@ -374,8 +417,8 @@ export const stack = [
       "Loki (Logging)",
       "Alertmanager",
       "CloudWatch",
-      "Datadog",
-      "New Relic",
+      "Datadog (apps + AWS)",
+      "New Relic APM",
       "SLO / Latency Probes",
     ],
   },
@@ -384,11 +427,13 @@ export const stack = [
     icon: "cpu",
     tags: [
       "MLflow Experiment Tracking",
+      "MLflow Model Registry",
       "DVC (Data Version Control)",
-      "Model Registry",
-      "Containerized Inference",
-      "Streamlit UI",
-      "Retraining CI/CD",
+      "scikit-learn Pipelines",
+      "FastAPI Model Serving",
+      "KServe",
+      "Drift Monitoring",
+      "GitOps for ML (Argo CD)",
     ],
   },
 ];
@@ -475,3 +520,43 @@ export const continuingEducation = [
   },
 ];
 
+
+// Replace every "TODO:" sentence with your real story before publishing.
+export const caseStudies = [
+  {
+    metric: "90 → 14 min deploys",
+    title: "Rebuilding delivery for six product teams",
+    problem:
+      "Each team shipped through its own hand-rolled pipeline and a release took about 90 minutes. TODO: describe what made it slow and what it cost the teams.",
+    approach:
+      "One pipeline shape for every team: GitHub Actions to ECR, Argo CD to EKS, Argo Rollouts for the cutover. TODO: how you rolled it out team by team.",
+    tradeoffs:
+      "TODO: what you gave up, for example flexibility per team, migration effort, or extra platform ownership.",
+    result:
+      "90 minutes down to 14 minutes on average. TODO: add the effect on release frequency or failed deploys.",
+  },
+  {
+    metric: "GBP 9k → 3k per month",
+    title: "Cutting a client's cloud bill by two thirds",
+    problem:
+      "TODO: what was driving the GBP 9,000 monthly spend (idle dev environments, purchased public IPs).",
+    approach:
+      "Moved dev environments on-premises and replaced public IPs with Cloudflare Tunnel behind a VPN. TODO: how you migrated without downtime.",
+    tradeoffs:
+      "TODO: on-prem maintenance, VPN access model, and why production stayed in the cloud.",
+    result:
+      "Monthly spend from GBP 9,000 to GBP 3,000 with every dev environment kept.",
+  },
+  {
+    metric: "−50% time to detect",
+    title: "Centralized alerting that finds problems first",
+    problem:
+      "TODO: how incidents were discovered before (customers, ad-hoc checks).",
+    approach:
+      "Prometheus and Grafana with alerts on CPU, memory, health and request latency. TODO: how you chose thresholds and routed alerts.",
+    tradeoffs:
+      "TODO: alert noise, on-call load, and what you chose not to alert on.",
+    result:
+      "Mean time to detect cut by 50%. TODO: add a real incident where it paid off.",
+  },
+] as const;

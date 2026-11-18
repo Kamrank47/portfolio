@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: transparent; }
+      .box { fill: #fbfaf4; stroke: #b6bcae; stroke-width: 1.5; rx: 6px; }
+      .box-focus { fill: #0b2a22; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-accent { fill: #fbfaf4; stroke: #0b2a22; stroke-width: 1.5; rx: 6px; }
+      .box-infra { fill: #f2f1ea; stroke: #b6bcae; stroke-dasharray: 4 3; stroke-width: 1.2; rx: 6px; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0c1613; }
+      .text-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #5c6a62; }
+      .text-focus-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #f5f7ef; }
+      .text-focus-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 9px; fill: #c9f24d; }
+      .arrow { stroke: #0b2a22; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-accent { stroke: #2f8a5b; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-dashed { stroke: #5c6a62; stroke-width: 1.2; stroke-dasharray: 3 3; fill: none; marker-end: url(#arrowhead-gray); }
+
+      @media (prefers-color-scheme: dark) {
+        .box { fill: #101816; stroke: #31433a; }
+        .box-focus { fill: #061a15; stroke: #c9f24d; }
+        .box-accent { fill: #15201c; stroke: #5ee39a; }
+        .box-infra { fill: #0a0f0e; stroke: #1f2b25; }
+        .text-title { fill: #e8efe5; }
+        .text-sub { fill: #8b9c90; }
+        .text-focus-title { fill: #f5f7ef; }
+        .text-focus-sub { fill: #c9f24d; }
+        .arrow { stroke: #c9f24d; marker-end: url(#arrowhead-lime); }
+        .arrow-accent { stroke: #5ee39a; marker-end: url(#arrowhead-green); }
+        .arrow-dashed { stroke: #8b9c90; marker-end: url(#arrowhead-gray); }
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#0b2a22" />
+    </marker>
+    <marker id="arrowhead-lime" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#c9f24d" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#2f8a5b" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#5c6a62" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+  <g transform="translate(20, 84)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Prometheus</text><text x="10" y="36" class="text-sub">Alert rules</text></g>
+  <g transform="translate(155, 84)"><rect width="115" height="52" class="box" /><text x="10" y="21" class="text-title">Alertmanager</text><text x="10" y="36" class="text-sub">Webhook route</text></g>
+  <g transform="translate(295, 84)"><rect width="150" height="52" class="box" /><text x="10" y="21" class="text-title">FastAPI triage</text><text x="10" y="36" class="text-sub">Redact, prompt, validate</text></g>
+  <g transform="translate(470, 84)"><rect width="140" height="52" class="box" /><text x="10" y="21" class="text-title">Gemini Flash-Lite</text><text x="10" y="36" class="text-sub">JSON-schema output</text></g>
+  <g transform="translate(635, 84)"><rect width="145" height="52" class="box" /><text x="10" y="21" class="text-title">Slack</text><text x="10" y="36" class="text-sub">Triage or raw fallback</text></g>
+  <g transform="translate(250, 16)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Prometheus API</text><text x="10" y="36" class="text-sub">Metrics context</text></g>
+  <g transform="translate(375, 16)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Loki API</text><text x="10" y="36" class="text-sub">Log context</text></g>
+  <g transform="translate(500, 16)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Runbooks</text><text x="10" y="36" class="text-sub">Matched by alert</text></g>
+  <g transform="translate(295, 152)"><rect width="150" height="52" class="box" /><text x="10" y="21" class="text-title">/metrics</text><text x="10" y="36" class="text-sub">Service telemetry</text></g>
+  <path d="M 130 110 L 152 110" class="arrow" />
+  <path d="M 270 110 L 292 110" class="arrow" />
+  <path d="M 445 110 L 467 110" class="arrow" />
+  <path d="M 610 110 L 632 110" class="arrow" />
+  <path d="M 305 68 L 330 82" class="arrow-dashed" />
+  <path d="M 430 68 L 410 82" class="arrow-dashed" />
+  <path d="M 555 68 L 410 82" class="arrow-dashed" />
+  <path d="M 370 136 L 370 150" class="arrow-dashed" />
+</svg>
