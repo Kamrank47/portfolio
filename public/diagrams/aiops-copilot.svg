@@ -46,7 +46,7 @@
   <g transform="translate(20, 84)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Prometheus</text><text x="10" y="36" class="text-sub">Alert rules</text></g>
   <g transform="translate(155, 84)"><rect width="115" height="52" class="box" /><text x="10" y="21" class="text-title">Alertmanager</text><text x="10" y="36" class="text-sub">Webhook route</text></g>
   <g transform="translate(295, 84)"><rect width="150" height="52" class="box" /><text x="10" y="21" class="text-title">FastAPI triage</text><text x="10" y="36" class="text-sub">Redact, prompt, validate</text></g>
-  <g transform="translate(470, 84)"><rect width="140" height="52" class="box" /><text x="10" y="21" class="text-title">Gemini Flash-Lite</text><text x="10" y="36" class="text-sub">JSON-schema output</text></g>
+  <g transform="translate(470, 84)"><rect width="140" height="52" class="box" /><text x="10" y="21" class="text-title">GPT-OSS 120B</text><text x="10" y="36" class="text-sub">Groq, JSON mode</text></g>
   <g transform="translate(635, 84)"><rect width="145" height="52" class="box" /><text x="10" y="21" class="text-title">Slack</text><text x="10" y="36" class="text-sub">Triage or raw fallback</text></g>
   <g transform="translate(250, 16)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Prometheus API</text><text x="10" y="36" class="text-sub">Metrics context</text></g>
   <g transform="translate(375, 16)"><rect width="110" height="52" class="box" /><text x="10" y="21" class="text-title">Loki API</text><text x="10" y="36" class="text-sub">Log context</text></g>

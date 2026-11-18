@@ -100,18 +100,18 @@ export const projects = [
       {
         key: "Reliability",
         value:
-          "Gemini 2.5 Flash-Lite returns schema-enforced JSON. If the model fails or times out, the raw alert still reaches Slack, marked as a fallback.",
+          "GPT-OSS 120B on Groq (free tier) returns validated JSON in about a second. If the model fails or times out, the raw alert still reaches Slack, marked as a fallback.",
       },
       {
         key: "Quality",
         value:
-          "Five fault scenarios with known root causes for evaluation, unit tests, Ruff, a non-root read-only container and Trivy in CI.",
+          "Eval on five fault scenarios with known root causes: 5/5 correct, 1.0 to 1.3 s per triage. Unit tests, Ruff, a non-root read-only container and Trivy in CI.",
       },
     ],
     stack: [
       "Python",
       "FastAPI",
-      "Gemini API",
+      "Groq",
       "Prometheus",
       "Loki",
       "Alertmanager",
