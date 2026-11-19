@@ -6,6 +6,7 @@ import {
   profile,
   metrics,
   projectThemes,
+  aiPrinciples,
   stack,
   experience,
   posts,
@@ -17,8 +18,8 @@ import {
 ---
 
 <Base
-  title="Kamran Hashmi · DevOps & DevSecOps Engineer"
-  description="DevOps and DevSecOps engineer in Lahore. Kubernetes, Terraform, CI/CD, security hardening and observability for teams that need deploys to stop being events."
+  title="Kamran Hashmi · DevSecOps Engineer for AI-era platforms"
+  description="DevSecOps engineer in Lahore building the pipelines, guardrails and observability that make AI-assisted infrastructure safe to run in production. Kubernetes, Terraform, AIOps."
 >
   <section class="hero">
     <div class="wrap hero__grid">
@@ -29,16 +30,18 @@ import {
         </p>
 
         <h1 class="hero__title">
-          <span class="line"><span>I make</span></span>
-          <span class="line"><span>infrastructure</span></span>
-          <span class="line"><span><em>boring</em>.</span></span>
+          <span class="line"><span>AI writes the code.</span></span>
+          <span class="line"><span>I make it <em>safe</em></span></span>
+          <span class="line"><span>to run.</span></span>
         </h1>
 
         <p class="hero__lede">
-          DevSecOps engineer in Lahore. Five years across software and platform
-          engineering: <strong>Kubernetes</strong> on EKS and AKS,
-          <strong>Terraform</strong> and Terragrunt, CI/CD, security hardening, and
-          the observability that tells you when any of it breaks.
+          DevSecOps engineer in Lahore. I build the pipelines, guardrails and
+          observability that let teams ship fast without trusting anything
+          blindly: <strong>Kubernetes</strong> and <strong>Terraform</strong>
+          platforms, security hardening, and an
+          <strong>AIOps copilot</strong> that triages incidents read-only, with
+          secrets redacted and every answer validated.
         </p>
 
         <div class="hero__actions">
@@ -76,7 +79,7 @@ import {
           </div>
           <div class="meta-item">
             <dt>Focus</dt>
-            <dd>AIOps</dd>
+            <dd>AIOps and guardrails<br />for AI-era platforms</dd>
           </div>
         </dl>
       </div>
@@ -102,7 +105,8 @@ import {
           </h2>
           <p class="section__intro">
             Slow deploys, silent failures, surprise bills, credentials in git. Each
-            of these was a number I could move.
+            of these was a number I could move. AI does not remove that work; it
+            raises the stakes on getting it right.
           </p>
         </div>
       </div>
@@ -132,13 +136,44 @@ import {
     </div>
   </section>
 
+  <section class="section" id="ai" aria-labelledby="ai-title">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <p class="section__index">02 / Working with AI</p>
+        <div>
+          <h2 class="section__title" id="ai-title">
+            AI is a fast junior. I am the reviewer.
+          </h2>
+          <p class="section__intro">
+            Generated infrastructure is cheap. Trusting it is expensive. These are
+            the rules I build and work by, each one visible in a repository.
+          </p>
+        </div>
+      </div>
+
+      <div class="cases reveal stagger">
+        {aiPrinciples.map((item) => (
+          <article class="case">
+            <h3 class="case__title">{item.title}</h3>
+            <dl class="case__list">
+              <dt>In practice</dt>
+              <dd>{item.practice}</dd>
+              <dt>Proof</dt>
+              <dd class="mono">{item.proof}</dd>
+            </dl>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="work" aria-labelledby="work-title">
     <div class="wrap">
       <div class="section__head reveal">
-        <p class="section__index">02 / Selected work</p>
+        <p class="section__index">03 / Selected work</p>
         <div>
           <h2 class="section__title" id="work-title">
-            Five platforms, one pattern.
+            An AIOps copilot, on top of the platforms it watches.
           </h2>
           <p class="section__intro">
             Every project here is a production pattern rebuilt as a reference
@@ -168,7 +203,7 @@ import {
   <section class="section" id="cases" aria-labelledby="cases-title">
     <div class="wrap">
       <div class="section__head reveal">
-        <p class="section__index">03 / Case studies</p>
+        <p class="section__index">04 / Case studies</p>
         <div>
           <h2 class="section__title" id="cases-title">
             The story behind the numbers.
@@ -203,7 +238,7 @@ import {
   <section class="section" id="stack" aria-labelledby="stack-title">
     <div class="wrap">
       <div class="section__head reveal">
-        <p class="section__index">04 / Stack</p>
+        <p class="section__index">05 / Stack</p>
         <div>
           <h2 class="section__title" id="stack-title">
             Tools I run, not tools I list.
@@ -237,7 +272,7 @@ import {
   <section class="section" id="experience" aria-labelledby="experience-title">
     <div class="wrap">
       <div class="section__head reveal">
-        <p class="section__index">05 / Experience</p>
+        <p class="section__index">06 / Experience</p>
         <div>
           <h2 class="section__title" id="experience-title">
             Five years, three teams.
@@ -298,7 +333,7 @@ import {
   <section class="section" id="writing" aria-labelledby="writing-title">
     <div class="wrap">
       <div class="section__head reveal">
-        <p class="section__index">06 / Writing</p>
+        <p class="section__index">07 / Writing</p>
         <div>
           <h2 class="section__title" id="writing-title">Notes from the work.</h2>
           <p class="section__intro">
@@ -327,12 +362,12 @@ import {
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap contact__inner">
       <div class="reveal">
-        <p class="eyebrow">07 / Contact</p>
+        <p class="eyebrow">08 / Contact</p>
         <h2 id="contact-title" class="mt-16">
-          Let’s make your deploys <em>boring</em>.
+          Let’s make your AI-era platform <em>safe</em> to run.
         </h2>
         <p class="contact__lede">
-          Open to remote and contract roles. Based in Lahore, PKT (UTC+5), and
+          Open to remote and contract roles in platform, DevSecOps and AIOps. Based in Lahore, PKT (UTC+5), and
           comfortable writing the runbook as well as the pipeline.
         </p>
         <div class="contact__actions">

@@ -1,7 +1,7 @@
 export const profile = {
   name: "Kamran Hashmi",
   role: "DevSecOps Engineer",
-  focus: "AIOps",
+  focus: "AI-safe platform engineering",
   email: "kamranali.k47@gmail.com",
   phone: "+92-303-4145584",
   phoneHref: "+923034145584",
@@ -82,7 +82,7 @@ export const metrics = [
 export const projects = [
   {
     num: "01",
-    kicker: "AIOps · LLM incident triage",
+    kicker: "AIOps · LLM incident triage · flagship",
     title: "AIOps incident copilot",
     claim:
       "Alertmanager fires, the service gathers metrics, logs and the matching runbook, and an LLM posts a short triage to Slack. Read-only by design.",
@@ -124,6 +124,43 @@ export const projects = [
   },
   {
     num: "02",
+    kicker: "AI guardrails · policy as code",
+    title: "AI Terraform guardrails",
+    claim:
+      "AI assistants write Terraform fast and get security details quietly wrong. This is the pull-request gate between the draft and the apply.",
+    facts: [
+      {
+        key: "Gate",
+        value:
+          "Trivy config scan, terraform plan, then OPA/Conftest rules against the plan JSON, all on every pull request in GitHub Actions.",
+      },
+      {
+        key: "Evidence",
+        value:
+          "A realistic AI-style draft fails all 7 policy rules and 2 HIGH Trivy findings. The reviewed version of the same stack passes every check, in CI and locally.",
+      },
+      {
+        key: "Rules",
+        value:
+          "World-open ingress, wildcard IAM actions, unencrypted databases, literal passwords and missing owner tags, checked against the plan rather than the source.",
+      },
+      {
+        key: "Honest bit",
+        value:
+          "My first policy version had three bugs, including a tag rule that never fired. A gate is only trusted once you have watched it fail.",
+      },
+    ],
+    stack: [
+      "Terraform",
+      "OPA / Rego",
+      "Conftest",
+      "Trivy",
+      "GitHub Actions",
+    ],
+    repo: "https://github.com/Kamrank47/guardrails-demo",
+  },
+  {
+    num: "03",
     kicker: "Kubernetes platform · GitOps",
     title: "EKS platform",
     claim:
@@ -164,7 +201,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/eks-jenkins-argocd-deployment",
   },
   {
-    num: "03",
+    num: "04",
     kicker: "Cost-optimized compute · Blue/green",
     title: "EC2 deployment platform",
     claim:
@@ -205,7 +242,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/ec2-terraform-deployment",
   },
   {
-    num: "04",
+    num: "05",
     kicker: "ECS Fargate · Terragrunt modules",
     title: "ECS deployment platform",
     claim:
@@ -246,7 +283,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/ecs-terragrunt-deployment",
   },
   {
-    num: "05",
+    num: "06",
     kicker: ".NET on IIS · Angular on Cloudflare Pages",
     title: "GitLab CI/CD pipelines",
     claim:
@@ -285,7 +322,7 @@ export const projects = [
     repo: "https://github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines",
   },
   {
-    num: "06",
+    num: "07",
     kicker: "MLOps · end-to-end delivery",
     title: "Purchase-intent MLOps platform",
     claim:
@@ -329,13 +366,48 @@ export const projects = [
 ];
 
 export const projectThemes = [
+  "AIOps",
+  "Guardrails",
   "Kubernetes",
   "Terraform",
   "CI/CD",
-  "DevSecOps",
   "Observability",
   "MLOps",
 ];
+
+// How AI is used and constrained in my work. Each point is backed by a repo.
+export const aiPrinciples = [
+  {
+    title: "AI suggests, humans and pipelines decide",
+    practice:
+      "The incident copilot is read-only by design. It gathers metrics, logs and the runbook, then proposes steps. It never executes anything against a system.",
+    proof: "aiops-incident-copilot · app/ and README design decisions",
+  },
+  {
+    title: "Nothing sensitive leaves the network",
+    practice:
+      "Secrets, emails, IPs and tokens are redacted before any text reaches a hosted model, so the model sees the problem and not the credentials.",
+    proof: "aiops-incident-copilot · app/redact.py",
+  },
+  {
+    title: "AI output is validated, never trusted",
+    practice:
+      "Responses must parse into a strict schema (summary, likely cause, confidence, next steps) or they are rejected. If the model fails or times out, the raw alert still reaches Slack, marked as a fallback.",
+    proof: "aiops-incident-copilot · Pydantic validation and fallback path",
+  },
+  {
+    title: "Measure it, do not demo it",
+    practice:
+      "Triage quality is checked against five fault scenarios with known root causes: 5/5 correct at 1.0 to 1.3 s each. Delivery pipelines gate every change with image scanning, tests and a smoke test before cutover.",
+    proof: "aiops-incident-copilot · eval/ · CI with Trivy and Ruff",
+  },
+  {
+    title: "Automation still needs an owner",
+    practice:
+      "Generated Terraform, YAML and scripts are fast to produce and easy to get subtly wrong. I review the plan, enforce least-privilege IAM, and keep keyless auth and default-deny networking in the baseline.",
+    proof: "eks-jenkins-argocd-deployment · ec2-terraform-deployment",
+  },
+] as const;
 
 export const stack = [
   {
