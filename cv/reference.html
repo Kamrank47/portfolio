@@ -23,8 +23,9 @@
 
       body {
         font-family: "Liberation Serif", "Nimbus Roman", "Times New Roman", Georgia, serif;
-        font-size: 8.8pt;
-        line-height: 1.25;
+        font-variant-ligatures: none;
+        font-size: 8.65pt;
+        line-height: 1.24;
         color: #111;
         -webkit-font-smoothing: antialiased;
       }
@@ -32,32 +33,42 @@
       .sheet {
         width: 210mm;
         min-height: 297mm;
-        padding: 8.5mm 12mm;
+        padding: 9mm 13mm;
       }
 
       a {
         color: #111;
+        text-decoration: none;
+      }
+
+      a:hover {
         text-decoration: underline;
       }
 
       header {
         text-align: center;
-        margin-bottom: 1.8mm;
+        margin-bottom: 2.2mm;
       }
 
       h1 {
         margin: 0;
-        font-size: 18pt;
+        font-size: 19pt;
         line-height: 1.05;
-        font-weight: 700;
+        font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         color: #111;
       }
 
+      .subtitle {
+        margin: 1.1mm 0 0;
+        font-size: 8.7pt;
+        color: #222;
+      }
+
       .contact {
-        margin: 1mm 0 0;
-        font-size: 8.6pt;
+        margin: 0.7mm 0 0;
+        font-size: 8.4pt;
         color: #222;
       }
 
@@ -68,28 +79,19 @@
         color: #111;
       }
 
-      .links a {
-        text-decoration: none;
-        color: #111;
-      }
-
-      .links a:hover {
-        text-decoration: underline;
-      }
-
       section {
-        margin-top: 2mm;
+        margin-top: 2.2mm;
       }
 
       h2 {
-        margin: 0 0 1.2mm;
-        padding-bottom: 0.4mm;
-        font-size: 9.2pt;
-        font-weight: 700;
+        margin: 0 0 1.4mm;
+        padding-bottom: 0.45mm;
+        font-size: 8.8pt;
+        font-weight: 400;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         color: #111;
-        border-bottom: 0.75pt solid #222;
+        border-bottom: 0.5pt solid #222;
       }
 
       p {
@@ -99,11 +101,20 @@
       b,
       strong {
         font-weight: 700;
-        color: #000;
+        color: #111;
+      }
+
+      .summary-text {
+        padding-left: 4.5mm;
       }
 
       .job {
+        padding-left: 4.5mm;
         margin-bottom: 1.6mm;
+      }
+
+      .job:last-child {
+        margin-bottom: 0;
       }
 
       .row-head {
@@ -114,38 +125,50 @@
       }
 
       .row-left {
-        font-size: 8.9pt;
+        font-size: 8.7pt;
       }
 
       .row-right {
-        font-size: 8.6pt;
+        font-size: 8.55pt;
         color: #222;
         white-space: nowrap;
       }
 
-      ul {
-        margin: 0.7mm 0 0;
-        padding-left: 4.2mm;
+      ul.bullets {
+        margin: 0.55mm 0 0;
+        padding-left: 5mm;
+        list-style: disc;
       }
 
-      li {
-        margin: 0 0 0.55mm;
-        padding-left: 0.4mm;
+      ul.bullets li {
+        margin: 0 0 0.45mm;
+      }
+
+      ul.bullets li:last-child {
+        margin-bottom: 0;
+      }
+
+      .skills-block {
+        padding-left: 9.5mm;
       }
 
       .skill-row {
         display: flex;
         align-items: baseline;
-        gap: 2.5mm;
-        margin-bottom: 0.65mm;
+        gap: 3mm;
+        margin-bottom: 0.55mm;
         font-size: 8.6pt;
-        line-height: 1.26;
+        line-height: 1.24;
+      }
+
+      .skill-row:last-child {
+        margin-bottom: 0;
       }
 
       .skill-label {
-        width: 42mm;
+        width: 40mm;
         flex-shrink: 0;
-        font-weight: 700;
+        font-weight: 400;
         color: #111;
       }
 
@@ -154,7 +177,12 @@
       }
 
       .project {
-        margin-bottom: 1.5mm;
+        padding-left: 4.5mm;
+        margin-bottom: 1.45mm;
+      }
+
+      .project:last-child {
+        margin-bottom: 0;
       }
 
       .proj-tech {
@@ -165,14 +193,35 @@
       }
 
       .proj-desc {
-        margin-top: 0.45mm;
-        font-size: 8.65pt;
-        line-height: 1.25;
+        margin-top: 0.4mm;
+        padding-left: 5mm;
+        font-size: 8.6pt;
+        line-height: 1.24;
       }
 
-      .cert-line {
-        margin-bottom: 0.5mm;
-        font-size: 8.7pt;
+      .edu-block {
+        padding-left: 4.5mm;
+      }
+
+      .edu-sub {
+        margin-top: 0.3mm;
+        font-size: 8.55pt;
+        color: #222;
+      }
+
+      .certs-list {
+        margin: 0;
+        padding-left: 9.5mm;
+        list-style: disc;
+      }
+
+      .certs-list li {
+        margin: 0 0 0.45mm;
+        font-size: 8.65pt;
+      }
+
+      .certs-list li:last-child {
+        margin-bottom: 0;
       }
     </style>
   </head>
@@ -180,6 +229,7 @@
     <div class="sheet">
       <header>
         <h1>Kamran Hashmi</h1>
+        <p class="subtitle">DevSecOps &amp; Platform Engineer · AWS, Kubernetes, Terraform, CI/CD &amp; Observability</p>
         <p class="contact">kamranali.k47@gmail.com | +92-303-4145584 | Lahore, Pakistan (Remote / Hybrid)</p>
         <p class="links">
           <a href="https://kamranhashmi.pages.dev">Portfolio</a> |
@@ -191,7 +241,7 @@
 
       <section>
         <h2>Summary</h2>
-        <p>
+        <p class="summary-text">
           DevSecOps &amp; Platform Engineer with 5 years across software engineering and AWS/DevOps
           infrastructure operations. Cut average deployment time from 90 minutes to under 15 minutes
           across 6 teams, reduced client cloud spend by 67% (GBP 9,000 to GBP 3,000/month), cut MTTD
@@ -205,35 +255,35 @@
 
         <div class="job">
           <div class="row-head">
-            <div class="row-left"><b>Pikessoft</b> | DevSecOps Engineer</div>
+            <div class="row-left"><b>Pikessoft | DevSecOps Engineer</b></div>
             <div class="row-right">Lahore, Pakistan | Aug 2023 – Present</div>
           </div>
-          <ul>
-            <li>Cut average deployment time from <b>90 minutes to under 15 minutes</b> across <b>6 product teams</b> by standardizing CI/CD pipelines in GitHub Actions, GitLab CI/CD, and Jenkins.</li>
-            <li>Provisioned and operated production workloads on <b>AWS EKS</b>, <b>ECS Fargate</b>, and <b>Azure AKS</b> with Terraform, enforcing consistent tagging, network segmentation, and least-privilege IAM.</li>
-            <li>Built a centralized serverless logging data lake across multiple <b>AWS Lambda</b> functions using <b>CloudWatch Logs subscriptions</b>, <b>Amazon Data Firehose</b>, <b>S3</b>, <b>AWS Glue</b> schemas, and <b>Amazon Athena</b> queried in <b>Grafana</b>, alongside <b>Apache Kafka</b> event streaming.</li>
-            <li>Built centralized Prometheus and Grafana health/latency alerting (cutting MTTD by <b>50%</b>), shrunk Docker images by <b>60%</b> with automated scanning, and cleared hard-coded credentials from <b>100%</b> of deployed repositories.</li>
-            <li>Cut client cloud spend by <b>67%</b> (<b>GBP 9,000 to GBP 3,000/month</b>) by moving dev environments on-premises behind Cloudflare Tunnel and VPN while keeping production in the cloud.</li>
+          <ul class="bullets">
+            <li>Cut average deployment time from 90 minutes to under 15 minutes across 6 product teams by standardizing CI/CD pipelines in GitHub Actions, GitLab CI/CD, and Jenkins.</li>
+            <li>Provisioned and operated production workloads on AWS EKS, ECS Fargate, and Azure AKS with Terraform, enforcing consistent tagging, network segmentation, and least-privilege IAM.</li>
+            <li>Built a centralized serverless logging data lake across multiple AWS Lambda functions using CloudWatch Logs subscriptions, Amazon Data Firehose, S3, AWS Glue for schema cataloging, and Amazon Athena queried in Grafana, alongside Apache Kafka event streaming.</li>
+            <li>Built centralized Prometheus and Grafana health/latency alerting (cutting MTTD by 50%), shrunk Docker images by 60% with automated scanning, and cleared hard-coded credentials from 100% of deployed repositories.</li>
+            <li>Cut client cloud spend by 67% (GBP 9,000 to GBP 3,000/month) by moving dev environments on-premises behind Cloudflare Tunnel and VPN while keeping production in the cloud.</li>
           </ul>
         </div>
 
         <div class="job">
           <div class="row-head">
-            <div class="row-left"><b>Northbay Solutions</b> | DevOps Engineer</div>
+            <div class="row-left"><b>Northbay Solutions | DevOps Engineer</b></div>
             <div class="row-right">Lahore, Pakistan | Oct 2022 – Apr 2023</div>
           </div>
-          <ul>
-            <li>Configured AWS EC2 Auto Scaling groups, ALBs, RDS, and S3, raising application availability to <b>99.5% uptime</b>; containerized monolithic apps with Docker for reproducible EC2 releases.</li>
-            <li>Automated log rotation, backups, health checks, and alerting in Python and Bash (saving <b>8+ hours/week</b>) and hardened Ubuntu and Amazon Linux servers (patching, access controls, firewall rules).</li>
+          <ul class="bullets">
+            <li>Configured AWS EC2 Auto Scaling groups, ALBs, RDS, and S3, raising application availability to 99.5% uptime; containerized monolithic apps with Docker for reproducible EC2 releases.</li>
+            <li>Automated log rotation, backups, health checks, and alerting in Python and Bash (saving 8+ hours/week) and hardened Ubuntu and Amazon Linux servers (patching, access controls, firewall rules).</li>
           </ul>
         </div>
 
         <div class="job">
           <div class="row-head">
-            <div class="row-left"><b>DevSmith</b> | Application Developer</div>
+            <div class="row-left"><b>DevSmith | Application Developer</b></div>
             <div class="row-right">Lahore, Pakistan | Oct 2021 – Jul 2022</div>
           </div>
-          <ul>
+          <ul class="bullets">
             <li>Built chat room and ticketing features for a Flutter application, a Bitcoin wallet app, and a WhatsApp media backup tool.</li>
           </ul>
         </div>
@@ -241,21 +291,23 @@
 
       <section>
         <h2>Skills</h2>
-        <div class="skill-row">
-          <div class="skill-label">Cloud &amp; Serverless:</div>
-          <div class="skill-val">AWS (EKS, ECS/Fargate, EC2, AWS Lambda, Amazon Data Firehose, AWS Glue, Amazon Athena, SQS/DLQ, RDS, S3, IAM, KMS, CodePipeline), Azure (AKS, Key Vault), GCP</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Containers, IaC &amp; Policy:</div>
-          <div class="skill-val">Kubernetes, Docker, Terraform, Terragrunt, Ansible, Argo CD, Argo Rollouts, Kustomize, Helm, OPA/Conftest, Trivy, SonarQube</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">CI/CD &amp; Observability:</div>
-          <div class="skill-val">GitHub Actions, GitLab CI/CD, Jenkins, Azure DevOps, Prometheus, Grafana, Loki, Alertmanager, CloudWatch Subscriptions, Datadog, New Relic</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Languages, Streaming &amp; Data:</div>
-          <div class="skill-val">Python, Bash, PowerShell, Apache Kafka, PostgreSQL, Redis, Linux (Ubuntu, Amazon Linux, RHEL), NestJS/Next.js delivery</div>
+        <div class="skills-block">
+          <div class="skill-row">
+            <div class="skill-label">Cloud &amp; Serverless:</div>
+            <div class="skill-val">AWS (EKS, ECS/Fargate, EC2, AWS Lambda, Amazon Data Firehose, AWS Glue, Amazon Athena, SQS/DLQ, RDS, S3, IAM, KMS, CodePipeline), Azure (AKS, Key Vault), GCP</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-label">Containers, IaC &amp; Policy:</div>
+            <div class="skill-val">Kubernetes, Docker, Terraform, Terragrunt, Ansible, Argo CD, Argo Rollouts, Kustomize, Helm, OPA/Conftest, Trivy, SonarQube</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-label">CI/CD &amp; Observability:</div>
+            <div class="skill-val">GitHub Actions, GitLab CI/CD, Jenkins, Azure DevOps, Prometheus, Grafana, Loki, Alertmanager, CloudWatch Subscriptions, Datadog, New Relic</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-label">Languages, Streaming &amp; Data:</div>
+            <div class="skill-val">Python, Bash, PowerShell, Apache Kafka, PostgreSQL, Redis, Linux (Ubuntu, Amazon Linux, RHEL), NestJS/Next.js delivery</div>
+          </div>
         </div>
       </section>
 
@@ -264,49 +316,57 @@
 
         <div class="project">
           <div class="row-head">
-            <div class="row-left"><b>AIOps Incident Copilot</b> | <a href="https://github.com/Kamrank47/aiops-incident-copilot">Link</a></div>
+            <div class="row-left"><b>AIOps Incident Copilot | <a href="https://github.com/Kamrank47/aiops-incident-copilot">Link</a></b></div>
             <div class="proj-tech">Python, FastAPI, Groq, Prometheus, Loki, Docker</div>
           </div>
-          <p class="proj-desc">Read-only LLM incident triage service: Alertmanager pulls Prometheus metrics, Loki logs, and runbooks, redacts secrets/PII before calling Groq (<span style="white-space:nowrap">GPT-OSS</span> 120B), validates JSON with Pydantic, and posts to Slack with raw-alert fallback (5/5 fault-scenario eval in 1.0 to 1.3 s).</p>
+          <p class="proj-desc">Built a read-only LLM incident triage service: Alertmanager pulls Prometheus metrics, Loki logs, and runbooks, redacts secrets/PII before calling Groq (<span style="white-space:nowrap">GPT-OSS</span> 120B), validates JSON with Pydantic, and posts to Slack with raw-alert fallback (5/5 fault-scenario eval in 1.0–1.3 s).</p>
         </div>
 
         <div class="project">
           <div class="row-head">
-            <div class="row-left"><b>AI Terraform Guardrails</b> | <a href="https://github.com/Kamrank47/guardrails-demo">Link</a></div>
+            <div class="row-left"><b>AI Terraform Guardrails | <a href="https://github.com/Kamrank47/guardrails-demo">Link</a></b></div>
             <div class="proj-tech">Terraform, OPA/Rego, Conftest, Trivy, GitHub Actions</div>
           </div>
-          <p class="proj-desc">Pull-request policy-as-code gate for AI-generated Terraform: runs Trivy config scan, offline terraform plan, and OPA/Conftest Rego checks on plan.json. Blocks 7/7 violations (open SSH, wildcard IAM, unencrypted RDS, literal passwords, missing owner tags) while passing reviewed stacks.</p>
+          <p class="proj-desc">Built a pull-request policy-as-code gate for AI-generated Terraform: runs Trivy config scan, offline terraform plan, and OPA/Conftest Rego checks on plan.json. Blocks 7/7 violations (open SSH, wildcard IAM, unencrypted RDS, literal passwords, missing owner tags) while passing reviewed stacks.</p>
         </div>
 
         <div class="project">
           <div class="row-head">
-            <div class="row-left"><b>NestJS EC2 &amp; Next.js CI/CD Pipelines</b> | <a href="https://github.com/Kamrank47/github-actions-vercel-ec2-pipelines">Link</a></div>
+            <div class="row-left"><b>NestJS EC2 &amp; Next.js CI/CD Pipelines | <a href="https://github.com/Kamrank47/github-actions-vercel-ec2-pipelines">Link</a></b></div>
             <div class="proj-tech">GitHub Actions, NestJS, Next.js, EC2, CodeDeploy, Prisma, Nginx</div>
           </div>
-          <p class="proj-desc">Production GitHub Actions pipelines deploying NestJS to AWS EC2 (keyless OIDC, SSM Parameter Store env injection, Prisma/PlanetScale PR schema diffs, ECR Docker build, and CodeDeploy Nginx blue/green cutover with automatic /api rollback) and Next.js to Vercel.</p>
+          <p class="proj-desc">Built production GitHub Actions pipelines deploying NestJS to AWS EC2 (keyless OIDC, SSM Parameter Store env injection, Prisma/PlanetScale PR schema diffs, ECR Docker build, and CodeDeploy Nginx blue/green cutover with automatic /api rollback) and Next.js to Vercel.</p>
         </div>
 
         <div class="project">
           <div class="row-head">
-            <div class="row-left"><b>Hardened EKS &amp; Serverless AWS</b> | <a href="https://github.com/Kamrank47/eks-jenkins-argocd-deployment">EKS</a> · <a href="https://github.com/Kamrank47/ec2-terraform-deployment">EC2/Lambda</a></div>
+            <div class="row-left"><b>Hardened EKS &amp; Serverless AWS | <a href="https://github.com/Kamrank47/eks-jenkins-argocd-deployment">EKS</a> · <a href="https://github.com/Kamrank47/ec2-terraform-deployment">EC2/Lambda</a></b></div>
             <div class="proj-tech">Terraform, Terragrunt, EKS, Lambda, SQS/DLQ, Argo CD, Jenkins</div>
           </div>
-          <p class="proj-desc">Multi-environment EKS platform with Terragrunt, encrypted S3 state, KMS, IMDSv2, Argo CD GitOps, and Argo Rollouts blue-green; paired with modular Terraform deploying SQS/DLQ queues feeding AWS Lambda consumers and self-hosted Prometheus/Loki/Grafana.</p>
+          <p class="proj-desc">Built a multi-environment EKS platform with Terragrunt, encrypted S3 state, KMS, IMDSv2, Argo CD GitOps, and Argo Rollouts blue-green; paired with modular Terraform deploying SQS/DLQ queues feeding AWS Lambda consumers and self-hosted Prometheus/Loki/Grafana.</p>
         </div>
       </section>
 
       <section>
         <h2>Education</h2>
-        <div class="row-head">
-          <div class="row-left"><b>Lahore Garrison University</b> · <i>B.S. Computer Science</i></div>
-          <div class="row-right">Lahore, Pakistan | 2021</div>
+        <div class="edu-block">
+          <div class="row-head">
+            <div class="row-left"><b>Lahore Garrison University</b></div>
+            <div class="row-right">Lahore, Pakistan</div>
+          </div>
+          <div class="row-head edu-sub">
+            <div>B.S. Computer Science</div>
+            <div class="row-right">Sep 2017 – Sep 2021</div>
+          </div>
         </div>
       </section>
 
       <section>
         <h2>Certifications</h2>
-        <p class="cert-line"><b>AWS Certified Solutions Architect</b> · Amazon Web Services</p>
-        <p class="cert-line"><b>MLOps Zero to Hero</b> · Production MLflow, DVC, Docker, Kubernetes &amp; KServe (Udemy)</p>
+        <ul class="certs-list">
+          <li>AWS Certified Solutions Architect — Amazon Web Services</li>
+          <li>MLOps Zero to Hero — Production MLflow, DVC, Docker, Kubernetes &amp; KServe (Udemy course)</li>
+        </ul>
       </section>
     </div>
   </body>
