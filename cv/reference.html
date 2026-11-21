@@ -23,8 +23,8 @@
 
       body {
         font-family: "Liberation Sans", Arial, Helvetica, sans-serif;
-        font-size: 9.1pt;
-        line-height: 1.38;
+        font-size: 8.9pt;
+        line-height: 1.34;
         color: #1c1c1c;
         -webkit-font-smoothing: antialiased;
       }
@@ -32,7 +32,7 @@
       .sheet {
         width: 210mm;
         min-height: 297mm;
-        padding: 11mm 14mm 12mm;
+        padding: 9.5mm 14mm 10mm;
       }
 
       a {
@@ -75,13 +75,13 @@
       }
 
       section {
-        margin-top: 2.2mm;
+        margin-top: 1.8mm;
       }
 
       h2 {
-        margin: 0 0 1.6mm;
-        padding-bottom: 0.7mm;
-        font-size: 9.6pt;
+        margin: 0 0 1.3mm;
+        padding-bottom: 0.6mm;
+        font-size: 9.4pt;
         font-weight: 700;
         letter-spacing: 0.09em;
         text-transform: uppercase;
@@ -101,9 +101,9 @@
       }
 
       .skills p {
-        margin: 0 0 1.1mm;
-        font-size: 8.8pt;
-        line-height: 1.42;
+        margin: 0 0 0.85mm;
+        font-size: 8.65pt;
+        line-height: 1.35;
       }
 
       .skills .label {
@@ -112,7 +112,7 @@
       }
 
       .job {
-        margin-bottom: 2.6mm;
+        margin-bottom: 2mm;
         break-inside: avoid;
       }
 
@@ -151,7 +151,7 @@
       }
 
       li {
-        margin: 0 0 0.9mm;
+        margin: 0 0 0.55mm;
         padding-left: 0.6mm;
       }
 
@@ -250,13 +250,13 @@
 
       <section class="skills">
         <h2>Technical Skills</h2>
-        <p><span class="label">Cloud:</span> AWS (EKS, ECS/Fargate, EC2, S3, IAM, RDS, CloudWatch, CodePipeline); Microsoft Azure (AKS, VMs, App Services, Functions, Blob Storage, Key Vault, MSSQL); GCP (GKE, VMs, Secret Manager, Cloud Storage)</p>
+        <p><span class="label">Cloud &amp; Streaming:</span> AWS (EKS, ECS/Fargate, EC2, AWS Lambda, Amazon Data Firehose, AWS Glue, Amazon Athena, SQS/DLQ, S3, IAM, KMS, RDS, CloudWatch, CodePipeline); Apache Kafka; Azure (AKS, Key Vault, VMs); GCP</p>
         <p><span class="label">Containers &amp; Orchestration:</span> Kubernetes, Amazon EKS, Azure AKS, Docker (multi-stage builds, ECR), Kustomize, Helm, Argo CD, Argo Rollouts</p>
-        <p><span class="label">IaC &amp; Configuration:</span> Terraform, Terragrunt, Ansible</p>
-        <p><span class="label">CI/CD &amp; Deployment:</span> GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, Azure DevOps Pipelines; Git, GitHub, GitLab, Bitbucket</p>
-        <p><span class="label">Observability:</span> Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, NewRelic</p>
-        <p><span class="label">Linux, Security &amp; Automation:</span> Linux (Ubuntu, Amazon Linux, RHEL), Bash and Python scripting; IAM least privilege, secrets management, container vulnerability scanning, patching, firewall rules, Cloudflare Tunnel, VPN</p>
-        <p><span class="label">AIOps &amp; AI Infrastructure (current focus):</span> model serving, ML observability, containerized GPU workloads</p>
+        <p><span class="label">IaC &amp; Configuration:</span> Terraform, Terragrunt, Ansible, OPA / Conftest (Policy-as-Code)</p>
+        <p><span class="label">CI/CD &amp; Delivery:</span> GitHub Actions, GitLab CI/CD, Jenkins, AWS CodePipeline, Azure DevOps Pipelines; NestJS/Next.js &amp; .NET/Angular delivery</p>
+        <p><span class="label">Observability:</span> Prometheus, Grafana, Alertmanager, Loki, CloudWatch Subscriptions, Amazon Athena + Grafana log lake, Datadog, NewRelic</p>
+        <p><span class="label">Linux, Security &amp; Automation:</span> Linux (Ubuntu, Amazon Linux, RHEL), Bash and Python; Trivy scanning, IAM least privilege, secrets management, Cloudflare Tunnel, VPN</p>
+        <p><span class="label">AIOps &amp; AI Infrastructure (current focus):</span> AIOps LLM incident triage, MLflow, DVC, KServe model serving, drift monitoring</p>
       </section>
 
       <section>
@@ -273,6 +273,7 @@
             <li>Designed and maintained multi-environment <b>CI/CD</b> pipelines in <b>GitHub Actions</b>, <b>GitLab CI/CD</b> and Jenkins, cutting average deployment time from 90 minutes to under <b>15 minutes</b> across 6 product teams.</li>
             <li>Managed AWS infrastructure with <b>Terraform</b>, enforcing consistent tagging, network segmentation and IAM least-privilege policies.</li>
             <li>Built a centralized observability stack (<b>Prometheus + Grafana</b>) with alerts for CPU, memory, health and request latency, reducing mean time to detect by <b>50%</b>.</li>
+            <li>Built a centralized serverless logging data lake for multiple <b>AWS Lambda</b> functions via <b>CloudWatch Logs subscriptions</b>, <b>Amazon Data Firehose</b>, <b>S3</b>, <b>AWS Glue</b> schemas and <b>Amazon Athena</b> queried in <b>Grafana</b>, plus <b>Apache Kafka</b> streaming.</li>
             <li>Standardized Docker image builds with multi-stage Dockerfiles, reducing final image sizes by <b>60%</b> and pushing to AWS ECR with automated vulnerability scanning at each pipeline stage.</li>
             <li>Implemented secrets management and environment-specific config injection across pipelines, eliminating hard-coded credentials in <b>100%</b> of deployed repositories.</li>
             <li>Cut a client's infrastructure cost from <b>GBP 9,000 to GBP 3,000 per month</b> by moving dev environments to on-premises servers and replacing purchased public IPs with <b>Cloudflare Tunnel</b> secured by VPN.</li>
@@ -325,17 +326,16 @@
         </div>
 
         <div class="project">
-          <h3>EC2 Terraform Deployment
+          <h3>EC2 Terraform Deployment (Serverless AWS Lambda + Blue/Green)
             <a href="https://github.com/Kamrank47/ec2-terraform-deployment">github.com/Kamrank47/ec2-terraform-deployment</a>
           </h3>
           <p>
-            Cost-optimized EC2 platform with Auto Scaling and ALB, CodeDeploy blue/green
-            releases, and artifacts staged in S3. GitHub Actions authenticates to AWS through
-            <b>OIDC</b> with no long-lived keys. Self-hosted Prometheus, Loki and Grafana scrape the
-            fleet over security-group-scoped ports. SQS queues with per-queue dead-letter queues
-            feed Lambda consumers for transactions, notifications and event ingestion.
+            Cost-optimized EC2 with Auto Scaling, ALB, CodeDeploy blue/green releases, keyless
+            GitHub <b>OIDC</b>, and self-hosted Prometheus, Loki and Grafana. Modular Terraform
+            deploys <b>SQS queues (with DLQs)</b> feeding <b>AWS Lambda</b> functions and layers
+            for transactions, notifications and event ingestion, backed by KMS-encrypted SSM and Secrets Manager.
           </p>
-          <p class="tech">Terraform, EC2, CodeDeploy, GitHub OIDC, SQS, Lambda, Prometheus, Loki, Grafana</p>
+          <p class="tech">Terraform, AWS Lambda, SQS, EC2, CodeDeploy, GitHub OIDC, SSM, Secrets Manager, Prometheus, Loki, Grafana</p>
         </div>
 
         <div class="project">
@@ -343,13 +343,24 @@
             <a href="https://github.com/Kamrank47/ecs-terragrunt-deployment">github.com/Kamrank47/ecs-terragrunt-deployment</a>
           </h3>
           <p>
-            ECS Fargate service behind an Application Load Balancer with CPU and memory
-            autoscaling, optional ACM TLS and path-based API routing. Reusable Terraform modules
-            orchestrated with Terragrunt across dev and prod, with a VPC across two availability
-            zones and security groups scoped per tier. Self-managed PostgreSQL and Redis data
-            tier, with CodePipeline and CodeBuild delivery reporting into Slack.
+            Containerized Node.js/NestJS service on ECS Fargate behind an ALB with autoscaling,
+            ACM TLS and path-based routing. Reusable Terraform modules orchestrated with Terragrunt
+            across dev and prod, tiered security groups, self-managed PostgreSQL and Redis, and CodePipeline Slack delivery.
           </p>
-          <p class="tech">Terraform, Terragrunt, ECS Fargate, ALB, ECR, CodePipeline, SSM, PostgreSQL, Redis</p>
+          <p class="tech">Terraform, Terragrunt, ECS Fargate, NestJS, ALB, ECR, CodePipeline, SSM, PostgreSQL, Redis</p>
+        </div>
+
+        <div class="project">
+          <h3>GitHub Actions CI/CD: NestJS on EC2 + Next.js on Vercel
+            <a href="https://github.com/Kamrank47/github-actions-vercel-ec2-pipelines">github.com/Kamrank47/github-actions-vercel-ec2-pipelines</a>
+          </h3>
+          <p>
+            Production GitHub Actions pipelines for <b>NestJS</b> on AWS EC2 (keyless OIDC, SSM
+            Parameter Store env injection, Prisma/PlanetScale PR schema-diff deploy requests, ECR
+            Docker build, and CodeDeploy single-EC2 Nginx blue/green swap polling <code>/api</code>
+            with automatic rollback) and Next.js on Vercel.
+          </p>
+          <p class="tech">GitHub Actions, NestJS, Next.js, AWS EC2, CodeDeploy, ECR, SSM, Prisma, PlanetScale, Nginx</p>
         </div>
 
         <div class="project">
@@ -357,27 +368,11 @@
             <a href="https://github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines">github.com/Kamrank47/gitlab-cicd-dotnet-angular-pipelines</a>
           </h3>
           <p>
-            Two production pipelines on self-hosted GitLab runners covering a five-environment
-            branching model. The .NET pipeline stops the app pool, serves an offline page, backs
-            up the previous release, copies the new build and polls Swagger until healthy. The
-            Angular pipeline injects environment config, runs a SonarQube gate on merge requests
-            and deploys to Cloudflare Pages with Wrangler. Production deploys require a manual
-            trigger.
+            Self-hosted GitLab CI/CD across five environments: .NET on Windows/IIS (app-pool stop,
+            offline page, PowerShell backup and Swagger smoke test) and Angular on Cloudflare Pages
+            with Wrangler and a SonarQube merge-request gate.
           </p>
           <p class="tech">GitLab CI/CD, .NET, IIS, PowerShell, Angular, Cloudflare Pages, SonarQube</p>
-        </div>
-
-        <div class="project">
-          <h3>MLOps Pipeline: MLflow + DVC + Kubernetes
-            <a href="https://github.com/Kamrank47/mlops-zero-to-hero">github.com/Kamrank47/mlops-zero-to-hero</a>
-          </h3>
-          <p>
-            End-to-end ML lifecycle with DVC for dataset and model versioning in S3, MLflow for
-            experiment tracking and central model registry, containerized Streamlit inference
-            deployed on Kubernetes with rolling updates, and GitHub Actions CI/CD that retrains
-            on data drift and promotes validated models.
-          </p>
-          <p class="tech">MLflow, DVC, Docker, Kubernetes, GitHub Actions, Streamlit, Python</p>
         </div>
       </section>
 

@@ -225,7 +225,7 @@ export const projects = [
       {
         key: "Async work",
         value:
-          "SQS queues with a dead-letter queue each, feeding Lambda consumers for transactions, notifications and event ingestion.",
+          "Terraform modules for SQS queues with a dead-letter queue each, feeding AWS Lambda functions and layers (with KMS-encrypted SSM and Secrets Manager) for transactions, notifications and event ingestion.",
       },
     ],
     stack: [
@@ -246,7 +246,7 @@ export const projects = [
     kicker: "ECS Fargate · Terragrunt modules",
     title: "ECS deployment platform",
     claim:
-      "A Fargate service with a real data tier, provisioned per environment from the same module set.",
+      "A containerized Node.js/NestJS Fargate service with a real data tier, provisioned per environment from the same module set.",
     facts: [
       {
         key: "Network",
@@ -363,6 +363,43 @@ export const projects = [
     ],
     repo: "https://github.com/Kamrank47/purchase-intent-mlops",
   },
+  {
+    num: "08",
+    kicker: "NestJS on EC2 · Next.js on Vercel",
+    title: "GitHub Actions CI/CD pipelines",
+    claim:
+      "Production GitHub Actions pipelines for a NestJS backend on AWS EC2 with Nginx blue/green cutover and a Next.js frontend on Vercel.",
+    facts: [
+      {
+        key: "Backend",
+        value:
+          "Builds and pushes NestJS Docker images to ECR using keyless GitHub OIDC and SSM Parameter Store, then deploys to EC2 via S3 and AWS CodeDeploy.",
+      },
+      {
+        key: "Schema & cutover",
+        value:
+          "Prisma schema diffs open PlanetScale deploy requests on PRs; CodeDeploy runs an Nginx blue/green swap polling /api with automatic rollback on failure.",
+      },
+      {
+        key: "Frontend",
+        value:
+          "Builds Next.js and ships to Vercel with environment configuration decoupled from the repository.",
+      },
+    ],
+    stack: [
+      "GitHub Actions",
+      "NestJS",
+      "Next.js",
+      "AWS EC2",
+      "CodeDeploy",
+      "ECR",
+      "SSM",
+      "Prisma",
+      "PlanetScale",
+      "Nginx",
+    ],
+    repo: "https://github.com/Kamrank47/github-actions-vercel-ec2-pipelines",
+  },
 ];
 
 export const projectThemes = [
@@ -415,6 +452,10 @@ export const stack = [
     icon: "cloud",
     tags: [
       "AWS (EKS, ECS, EC2)",
+      "AWS Lambda (Serverless)",
+      "Amazon Data Firehose",
+      "AWS Glue & Amazon Athena",
+      "Apache Kafka & SQS",
       "AWS Fargate",
       "AWS IAM & KMS",
       "Amazon S3 & RDS",
@@ -490,6 +531,7 @@ export const stack = [
       "Loki (Logging)",
       "Alertmanager",
       "CloudWatch",
+      "Athena + Grafana Log Lake",
       "Datadog (apps + AWS)",
       "New Relic APM",
       "SLO / Latency Probes",
@@ -522,6 +564,7 @@ export const experience = [
       "Cut average deployment time from <strong>90 minutes to under 15</strong> across <strong>6 product teams</strong> by rebuilding multi-environment pipelines in GitHub Actions, GitLab CI/CD and Jenkins.",
       "Manage AWS infrastructure with <strong>Terraform</strong>, enforcing consistent tagging, network segmentation and least-privilege IAM.",
       "Built a <strong>Prometheus and Grafana</strong> observability stack with alerting on CPU, memory, health and request latency, cutting mean time to detect by <strong>50%</strong>.",
+      "Built a centralized serverless logging data lake for multiple <strong>AWS Lambda</strong> functions using <strong>CloudWatch Logs subscriptions</strong>, <strong>Amazon Data Firehose</strong>, <strong>S3</strong>, <strong>AWS Glue</strong> schemas and <strong>Amazon Athena</strong> queried in <strong>Grafana</strong>, alongside <strong>Apache Kafka</strong> event streaming.",
       "Standardized multi-stage Docker builds, <strong>60% smaller images</strong>, pushed to ECR with vulnerability scanning at every pipeline stage.",
       "Removed hard-coded credentials from <strong>100% of deployed repositories</strong> through secrets management and environment-specific config injection.",
       "Cut a client’s infrastructure spend from <strong>GBP 9,000 to GBP 3,000 a month</strong> by moving dev environments on-premises and replacing purchased public IPs with Cloudflare Tunnel behind a VPN.",

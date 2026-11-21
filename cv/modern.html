@@ -479,11 +479,12 @@
               <li>Rebuilt multi-environment pipelines in <b>GitHub Actions</b>, <b>GitLab CI/CD</b> and <b>Jenkins</b>, cutting average deployment time from <b>90 minutes to under 15</b> across 6 product teams.</li>
               <li>Manage AWS infrastructure with <b>Terraform</b>: consistent tagging, network segmentation, IAM least privilege.</li>
               <li>Built <b>Prometheus + Grafana</b> monitoring with alerting on CPU, memory, health and latency, cutting mean time to detect by <b>50%</b>.</li>
+              <li>Built a centralized serverless logging data lake for multiple <b>AWS Lambda</b> functions using <b>CloudWatch Logs subscriptions</b>, <b>Amazon Data Firehose</b>, <b>S3</b>, <b>AWS Glue</b> schemas and <b>Amazon Athena</b> queried in <b>Grafana</b>, plus <b>Apache Kafka</b> streaming.</li>
               <li>Standardized multi-stage Docker builds for <b>60% smaller images</b>, pushed to ECR with vulnerability scanning at every stage.</li>
               <li>Removed hard-coded credentials from <b>100% of deployed repositories</b> with secrets management and per-environment config injection.</li>
               <li>Cut a client's infrastructure cost from <b>GBP 9,000 to GBP 3,000 per month</b> by moving dev environments on-premises and replacing public IPs with Cloudflare Tunnel behind a VPN.</li>
             </ul>
-            <p class="stackline">EKS · AKS · Terraform · GitHub Actions · GitLab CI · Jenkins · Prometheus · Grafana · ECR · Cloudflare</p>
+            <p class="stackline">EKS · AKS · Lambda · Firehose · Glue · Athena · Kafka · Terraform · GitHub Actions · Prometheus · Grafana · Cloudflare</p>
           </div>
 
           <div class="job">
@@ -528,24 +529,24 @@
               <p class="stackline">Terraform · Terragrunt · EKS · Argo CD · Argo Rollouts · Jenkins</p>
             </div>
             <div class="project">
-              <h3>EC2 deployment platform</h3>
-              <p>Cost-optimized EC2 with Auto Scaling, CodeDeploy blue/green releases, keyless GitHub OIDC, SQS and Lambda consumers, and self-hosted Prometheus, Loki and Grafana.</p>
-              <p class="stackline">Terraform · EC2 · CodeDeploy · OIDC · SQS · Lambda · Grafana</p>
+              <h3>EC2 &amp; serverless platform</h3>
+              <p>Cost-optimized EC2 with Auto Scaling, CodeDeploy blue/green, keyless GitHub OIDC, Terraform modules for SQS/DLQ + AWS Lambda functions/layers, KMS SSM, and Prometheus/Loki/Grafana.</p>
+              <p class="stackline">Terraform · AWS Lambda · SQS · EC2 · CodeDeploy · OIDC · Grafana</p>
             </div>
             <div class="project">
               <h3>ECS Terragrunt platform</h3>
-              <p>ECS Fargate behind an ALB with autoscaling, ACM TLS, per-tier security groups, a self-managed PostgreSQL and Redis tier, and CodePipeline delivery with Slack notifications.</p>
-              <p class="stackline">Terraform · Terragrunt · ECS Fargate · ALB · CodePipeline</p>
+              <p>Containerized Node.js/NestJS service on ECS Fargate behind an ALB with autoscaling, ACM TLS, tiered security groups, PostgreSQL/Redis tier, and CodePipeline delivery.</p>
+              <p class="stackline">Terraform · Terragrunt · ECS Fargate · NestJS · ALB · CodePipeline</p>
+            </div>
+            <div class="project">
+              <h3>GitHub Actions CI/CD (NestJS + Next.js)</h3>
+              <p>NestJS to AWS EC2 (keyless OIDC, SSM env injection, Prisma/PlanetScale PR schema diffs, ECR, CodeDeploy Nginx blue/green with /api health rollback) and Next.js to Vercel.</p>
+              <p class="stackline">GitHub Actions · NestJS · Next.js · EC2 · CodeDeploy · Prisma · Nginx</p>
             </div>
             <div class="project">
               <h3>GitLab CI/CD pipelines</h3>
-              <p>.NET on Windows/IIS with backup-and-smoke-test releases, and Angular on Cloudflare Pages with a SonarQube merge-request gate. Five environments, manual production triggers.</p>
-              <p class="stackline">GitLab CI/CD · .NET · IIS · Angular · Cloudflare Pages</p>
-            </div>
-            <div class="project">
-              <h3>MLOps pipeline</h3>
-              <p>End-to-end ML lifecycle with DVC data versioning, MLflow experiment tracking and model registry, containerized Streamlit inference on Kubernetes, and GitHub Actions CI/CD for retraining on drift.</p>
-              <p class="stackline">MLflow · DVC · Docker · Kubernetes · GitHub Actions · Streamlit</p>
+              <p>.NET on Windows/IIS with backup-and-smoke-test releases, and Angular on Cloudflare Pages with a SonarQube merge-request gate.</p>
+              <p class="stackline">GitLab CI/CD · .NET · IIS · Angular · Cloudflare Pages · SonarQube</p>
             </div>
           </div>
         </section>
@@ -554,32 +555,32 @@
           <h2>Technical skills</h2>
           <dl class="skills">
             <div class="skill">
-              <dt>Cloud</dt>
-              <dd>AWS (EKS, ECS/Fargate, EC2, S3, IAM, RDS, CloudWatch, CodePipeline), Azure (AKS, VMs, App Services, Functions, Blob Storage, Key Vault, MSSQL), GCP (GKE, VMs, Secret Manager, Cloud Storage)</dd>
+              <dt>Cloud &amp; streaming</dt>
+              <dd>AWS (EKS, ECS/Fargate, EC2, AWS Lambda, Amazon Data Firehose, AWS Glue, Amazon Athena, SQS/DLQ, S3, IAM, KMS, RDS, CloudWatch, CodePipeline), Apache Kafka, Azure (AKS, Key Vault, VMs), GCP</dd>
             </div>
             <div class="skill">
               <dt>Containers</dt>
               <dd>Kubernetes, EKS, AKS, Docker multi-stage builds, ECR, Kustomize, Helm, Argo CD, Argo Rollouts</dd>
             </div>
             <div class="skill">
-              <dt>IaC</dt>
-              <dd>Terraform, Terragrunt, Ansible</dd>
+              <dt>IaC &amp; policy</dt>
+              <dd>Terraform, Terragrunt, Ansible, OPA / Conftest (Policy-as-Code)</dd>
             </div>
             <div class="skill">
               <dt>CI/CD</dt>
-              <dd>GitHub Actions, GitLab CI/CD, Jenkins, CodePipeline, Azure DevOps Pipelines, Git</dd>
+              <dd>GitHub Actions, GitLab CI/CD, Jenkins, CodePipeline, Azure DevOps Pipelines; NestJS/Next.js &amp; .NET/Angular delivery</dd>
             </div>
             <div class="skill">
               <dt>Observability</dt>
-              <dd>Prometheus, Grafana, Alertmanager, Loki, CloudWatch, Datadog, New Relic</dd>
+              <dd>Prometheus, Grafana, Alertmanager, Loki, CloudWatch Subscriptions, Amazon Athena + Grafana log lake, Datadog, New Relic</dd>
             </div>
             <div class="skill">
               <dt>Linux &amp; security</dt>
-              <dd>Ubuntu, Amazon Linux, RHEL, Bash, Python, IAM least privilege, secrets management, image scanning, patching, firewall rules, Cloudflare Tunnel, VPN</dd>
+              <dd>Ubuntu, Amazon Linux, RHEL, Bash, Python, Trivy scanning, IAM least privilege, secrets management, Cloudflare Tunnel, VPN</dd>
             </div>
             <div class="skill">
-              <dt>AIOps</dt>
-              <dd>MLflow, DVC, model serving, containerized inference, Streamlit, experiment tracking, Kubeflow fundamentals</dd>
+              <dt>AIOps &amp; MLOps</dt>
+              <dd>AIOps LLM incident triage, MLflow, DVC, FastAPI, KServe model serving, drift monitoring</dd>
             </div>
           </dl>
         </section>
