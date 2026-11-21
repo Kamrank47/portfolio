@@ -19,10 +19,6 @@ export const profile = {
       href: "/resume/Kamran-Hashmi-Resume.pdf",
       label: "Kamran-Hashmi-Resume.pdf",
     },
-    modern: {
-      href: "/resume/Kamran-Hashmi-Resume-Modern.pdf",
-      label: "Kamran-Hashmi-Resume-Modern.pdf",
-    },
   },
 } as const;
 

@@ -1740,15 +1740,14 @@ main {
 }
 
 .cv-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(20px, 3vw, 36px);
+  display: block;
   padding-block: clamp(36px, 5vw, 56px);
 }
 
 .cv-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  align-items: stretch;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
@@ -1767,7 +1766,7 @@ main {
   position: relative;
   display: block;
   background: var(--paper-sunk);
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
   aspect-ratio: 210 / 297;
   overflow: hidden;
 }
@@ -1786,10 +1785,11 @@ main {
 }
 
 .cv-card__body {
-  padding: 24px;
+  padding: clamp(24px, 3.5vw, 40px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  gap: 14px;
   flex: 1;
 }
 
@@ -1814,9 +1814,20 @@ main {
   line-height: 1.55;
 }
 
+.cv-card__points {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
 .cv-card__actions {
-  margin-top: auto;
-  padding-top: 14px;
+  margin-top: 8px;
+  padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -2404,8 +2415,13 @@ main {
     align-self: center;
   }
 
-  .cv-grid {
+  .cv-card {
     grid-template-columns: 1fr;
+  }
+
+  .cv-card__preview {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
   }
 
   .edu,

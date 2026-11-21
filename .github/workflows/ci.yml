@@ -40,7 +40,6 @@ jobs:
           test -f dist/resume/index.html
           test -f dist/404.html
           test -f dist/resume/Kamran-Hashmi-Resume.pdf
-          test -f dist/resume/Kamran-Hashmi-Resume-Modern.pdf
           test -f dist/og.png
           echo "All expected files are present."
 

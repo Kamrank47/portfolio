@@ -42,11 +42,6 @@ const builds = [
     pdf: "Kamran-Hashmi-Resume.pdf",
     preview: "preview-reference.png",
   },
-  {
-    source: "cv/modern.html",
-    pdf: "Kamran-Hashmi-Resume-Modern.pdf",
-    preview: "preview-modern.png",
-  },
 ];
 
 const executablePath = await findChromium();

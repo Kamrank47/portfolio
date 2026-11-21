@@ -1,21 +1,20 @@
 # Kamran Hashmi — portfolio
 
 A static portfolio for a DevOps engineer, built with Astro and deployed on Cloudflare Pages.
-Two resumes are generated from the same source and shipped with the site.
+A single-page Classic ATS resume PDF is generated from HTML and shipped with the site.
 
 ## What's in here
 
 | Path | Purpose |
 | --- | --- |
 | `src/pages/index.astro` | Home page: hero, impact, selected work, stack, experience, writing, contact |
-| `src/pages/resume.astro` | Resume page with both resume downloads and page previews |
+| `src/pages/resume.astro` | Resume page with PDF download, preview, and facts |
 | `src/data/profile.ts` | All content. Edit copy here, not in the templates |
 | `src/styles/global.css` | Design tokens, layout and components |
-| `cv/reference.html` | Traditional two-page resume (ATS-friendly, single column) |
-| `cv/modern.html` | Modern two-page resume (impact-first layout) |
+| `cv/reference.html` | Single-page Classic ATS resume (serif typography, single column) |
 | `cv/og.html` | 1200x630 social card |
-| `scripts/build-cv.mjs` | Renders both resumes to PDF, plus previews and `og.png` |
-| `public/resume/` | Generated PDFs and preview images (committed) |
+| `scripts/build-cv.mjs` | Renders the resume PDF, preview image, and `og.png` |
+| `public/resume/` | Generated PDF and preview image (committed) |
 
 ## Local development
 
@@ -28,9 +27,9 @@ npm run preview    # serve dist/
 
 Node 22 (see `.nvmrc`).
 
-## Regenerating the resumes
+## Regenerating the resume
 
-The resumes are HTML with print CSS, rendered to A4 PDF with Chromium through Playwright.
+The resume is HTML with print CSS, rendered to A4 PDF with Chromium through Playwright.
 
 ```bash
 npm run cv
@@ -38,9 +37,8 @@ npm run cv
 
 This writes:
 
-- `public/resume/Kamran-Hashmi-Resume.pdf` — traditional format
-- `public/resume/Kamran-Hashmi-Resume-Modern.pdf` — modern format
-- `public/resume/preview-reference.png`, `preview-modern.png` — page-one previews
+- `public/resume/Kamran-Hashmi-Resume.pdf` — Classic ATS one-page format
+- `public/resume/preview-reference.png` — page-one preview
 - `public/og.png` — social card
 
 If Chromium is not already installed for Playwright, either install it
@@ -50,8 +48,8 @@ If Chromium is not already installed for Playwright, either install it
 CHROMIUM_PATH=/usr/bin/chromium npm run cv
 ```
 
-Both PDFs are two A4 pages. If an edit pushes one to three pages, tighten the
-spacing in the relevant `cv/*.html` rather than shrinking type below 8.5pt.
+The PDF is a single A4 page. If an edit pushes it to two pages, tighten the
+spacing in `cv/reference.html` rather than shrinking type below 8.5pt.
 
 ## Deploying to Cloudflare Pages
 
@@ -90,7 +88,7 @@ npx wrangler pages deploy dist --project-name kamranhashmi
 
 1. `npm ci`
 2. `npm run build`
-3. Verifies the expected static files exist (including both resume PDFs and `og.png`)
+3. Verifies the expected static files exist (including the resume PDF and `og.png`)
 4. Runs `scripts/check-links.mjs` to catch broken internal links
 5. Uploads the build as an artifact
 
@@ -123,5 +121,5 @@ and drop the URL from `script-src`.
 ## Content edits
 
 - Copy and metrics: `src/data/profile.ts`
-- Resume wording: `cv/reference.html` and `cv/modern.html`, then `npm run cv`
+- Resume wording: `cv/reference.html`, then `npm run cv`
 - Colours, type and spacing: the token block at the top of `src/styles/global.css`

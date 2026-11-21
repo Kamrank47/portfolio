@@ -5,54 +5,51 @@ import { profile, education, continuingEducation, certifications } from "../data
 
 <Base
   title="Resume · Kamran Hashmi"
-  description="Two versions of Kamran Hashmi's resume: a crisp one-page Classic ATS format for portals and forwarding, and a modern two-page layout for a first read."
+  description="Kamran Hashmi's one-page Classic ATS resume: DevSecOps and AI-safe platform engineering, ready for applicant tracking systems and direct forwarding."
 >
   <section class="page-head">
     <div class="wrap">
       <p class="eyebrow">Resume</p>
-      <h1 class="mt-16">Same experience. Two formats.</h1>
+      <h1 class="mt-16">One page. Built to parse and read cleanly.</h1>
       <p>
-        The first is a crisp one-page Classic ATS resume, built to survive an applicant
-        tracking system and to forward cleanly inside a company. The second is a
-        modern two-page layout for the first read. Both say the same thing, because a
-        recruiter should never have to compare two stories.
+        A single-page Classic ATS resume with clean serif typography, single-column
+        structure, and clickable project links. Text-based and free of tables so it
+        parses cleanly in Workday, Greenhouse, and Lever while staying fast for a
+        hiring manager to scan.
       </p>
       <div class="hero__actions mt-24">
         <a class="btn btn--primary" href={profile.cvs.reference.href} download>
-          Download traditional resume
+          Download resume
           <span aria-hidden="true">↓</span>
         </a>
-        <a class="btn btn--ghost" href={profile.cvs.modern.href} download>
-          Download modern resume
-          <span aria-hidden="true">↓</span>
+        <a
+          class="btn btn--ghost"
+          href={profile.cvs.reference.href}
+          target="_blank"
+          rel="noopener"
+        >
+          Open in new tab
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
   </section>
 
   <div class="wrap">
-    <div class="cv-note" role="note">
-      <p>
-        <strong>For ATS and forwarding, use the traditional resume.</strong> It is text
-        based, single column, no tables, and parses cleanly in Workday, Greenhouse
-        and Lever. The modern resume is for humans, not parsers.
-      </p>
-    </div>
-
     <div class="cv-grid">
       <article class="cv-card reveal">
         <a
           class="cv-card__preview"
           href={profile.cvs.reference.href}
-          aria-label="Open the traditional resume in a new tab"
+          aria-label="Open the resume in a new tab"
           target="_blank"
           rel="noopener"
         >
           <img
             src="/resume/preview-reference.png"
-            alt="Page one of Kamran Hashmi's traditional resume: name, contact details, professional summary, technical skills and professional experience."
-            width="1240"
-            height="1754"
+            alt="Kamran Hashmi's one-page Classic ATS resume: contact details, education, experience, technical skills, open source projects, and certifications."
+            width="794"
+            height="1123"
             loading="lazy"
           />
         </a>
@@ -60,9 +57,15 @@ import { profile, education, continuingEducation, certifications } from "../data
           <p class="cv-card__tag">Classic ATS · 1 page · A4</p>
           <h2>{profile.cvs.reference.label}</h2>
           <p>
-            Single-page serif layout with clean section rules, clickable repo links, and dense
-            experience detail. The version to send when a portal asks for a file.
+            Single-page serif layout with clean section rules, clickable GitHub and
+            portfolio links, and metrics aligned with the work documented on this site.
           </p>
+          <ul class="cv-card__points">
+            <li>Single A4 page, text-based PDF (no tables or multi-column traps)</li>
+            <li>Parses cleanly in Workday, Greenhouse, and Lever</li>
+            <li>Clickable links to GitHub repositories, LinkedIn, and portfolio</li>
+            <li>Verified metrics and stack matching this site</li>
+          </ul>
           <div class="cv-card__actions">
             <a class="btn btn--sm btn--accent" href={profile.cvs.reference.href} download>
               Download PDF
@@ -70,45 +73,6 @@ import { profile, education, continuingEducation, certifications } from "../data
             <a
               class="btn btn--sm btn--ghost"
               href={profile.cvs.reference.href}
-              target="_blank"
-              rel="noopener"
-            >
-              Open in new tab
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class="cv-card reveal">
-        <a
-          class="cv-card__preview"
-          href={profile.cvs.modern.href}
-          aria-label="Open the modern resume in a new tab"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="/resume/preview-modern.png"
-            alt="Page one of Kamran Hashmi's modern resume: name, role, contact details, impact metrics, experience and selected projects."
-            width="1240"
-            height="1754"
-            loading="lazy"
-          />
-        </a>
-        <div class="cv-card__body">
-          <p class="cv-card__tag">Modern · 2 pages · A4</p>
-          <h2>{profile.cvs.modern.label}</h2>
-          <p>
-            Impact first, then evidence. Numbers up top, project detail under each
-            role. The version to send when a person is reading, not a portal.
-          </p>
-          <div class="cv-card__actions">
-            <a class="btn btn--sm btn--accent" href={profile.cvs.modern.href} download>
-              Download PDF
-            </a>
-            <a
-              class="btn btn--sm btn--ghost"
-              href={profile.cvs.modern.href}
               target="_blank"
               rel="noopener"
             >
